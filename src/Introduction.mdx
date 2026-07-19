@@ -1,0 +1,20 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Overview/Introduction" />
+
+# Gambitech Design System
+
+A standalone, themeable component library for Next.js 15+, React 19 and
+Tailwind CSS v4.
+
+This Storybook is the primary workbench for building and reviewing components.
+The repository is currently in the **foundation & tooling** phase — no UI
+primitives are published yet. See `docs/ai/EPICS.md` for the roadmap.
+
+## Principles
+
+- **Tokens only.** Components consume semantic CSS variables (`bg-primary`,
+  `text-muted-foreground`, ...). No hardcoded hex colors.
+- **Radix foundation.** Primitives wrap Radix UI, styled with Tailwind v4 and CVA.
+- **Domain-agnostic.** Component names never encode a specific product's domain.
+- **Dual distribution.** Shipped as a shadcn custom registry and as an npm package.

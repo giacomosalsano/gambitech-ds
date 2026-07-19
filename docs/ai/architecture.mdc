@@ -1,0 +1,376 @@
+---
+description: Architectural standards and system design principles for this repository.
+alwaysApply: true
+---
+
+# Architecture Rules
+
+## Purpose
+
+This document defines the architectural principles that govern this repository.
+
+Architecture must always prioritize:
+
+- scalability
+- maintainability
+- modularity
+- consistency
+- extensibility
+- low coupling
+- high cohesion
+
+Every architectural decision should make the system easier to understand and evolve over time.
+
+---
+
+# Architecture Philosophy
+
+Design software as a collection of independent modules.
+
+Each module should have:
+
+- a single responsibility;
+- a clear public API;
+- well-defined boundaries;
+- minimal dependencies;
+- high cohesion;
+- low coupling.
+
+Modules should be easy to replace, test and extend.
+
+---
+
+# Architecture First
+
+Never begin implementation before understanding the architectural impact.
+
+Before writing code:
+
+1. Understand the problem.
+2. Identify affected modules.
+3. Analyze dependencies.
+4. Evaluate trade-offs.
+5. Design the solution.
+6. Implement only after the architecture is validated.
+
+Architecture always comes before implementation.
+
+---
+
+# Modular Design
+
+Prefer small, focused modules.
+
+Avoid monolithic files.
+
+Avoid modules that mix responsibilities.
+
+Every module should have a single reason to change.
+
+---
+
+# Separation of Concerns
+
+Keep responsibilities separated.
+
+Examples include, but are not limited to:
+
+- UI
+- Domain
+- Application
+- Infrastructure
+- Configuration
+- Shared Utilities
+
+Never mix unrelated concerns.
+
+---
+
+# Public APIs
+
+Every module should expose the smallest possible public API.
+
+Avoid exposing implementation details.
+
+Prefer explicit exports over wildcard exports.
+
+Only export what consumers actually need.
+
+---
+
+# Dependency Direction
+
+Dependencies should always point inward.
+
+High-level modules should not depend on implementation details.
+
+Implementation details should depend on abstractions whenever appropriate.
+
+Avoid circular dependencies.
+
+---
+
+# Reusability
+
+Before creating new functionality:
+
+- search for existing implementations;
+- evaluate whether they can be reused;
+- extend existing modules when appropriate.
+
+Avoid duplicate implementations.
+
+---
+
+# Composition
+
+Prefer composition over configuration.
+
+Prefer composition over inheritance.
+
+Build complex behaviors by combining simple building blocks.
+
+Avoid deeply nested abstractions.
+
+---
+
+# Component Architecture
+
+Components should be:
+
+- composable;
+- reusable;
+- predictable;
+- stateless whenever possible;
+- isolated.
+
+Avoid tightly coupled components.
+
+Avoid hidden side effects.
+
+---
+
+# State Management
+
+Keep state as close as possible to where it is used.
+
+Avoid unnecessary global state.
+
+Prefer local state unless sharing is required.
+
+Derived state should not be duplicated.
+
+---
+
+# File Organization
+
+Group files by feature or domain whenever appropriate.
+
+Avoid organizing large projects exclusively by file type.
+
+Prefer:
+
+Feature
+
+↓
+
+Components
+
+↓
+
+Hooks
+
+↓
+
+Types
+
+↓
+
+Utilities
+
+Instead of:
+
+Components
+
+Hooks
+
+Utils
+
+Pages
+
+for unrelated features.
+
+---
+
+# Naming
+
+Names should clearly describe responsibility.
+
+Avoid vague names such as:
+
+- helper
+- manager
+- common
+- misc
+- utils (unless truly generic)
+
+Favor explicit names.
+
+---
+
+# Folder Structure
+
+Folders should represent architectural boundaries.
+
+Avoid deep nesting.
+
+Prefer shallow, discoverable structures.
+
+---
+
+# Shared Code
+
+Shared code should exist only when it is genuinely shared.
+
+Do not prematurely move code into shared modules.
+
+Shared modules must remain generic.
+
+---
+
+# Design Decisions
+
+Before introducing a new abstraction, ask:
+
+- Does it solve a current problem?
+- Will it simplify future development?
+- Is the added complexity justified?
+
+If the answer is no, do not introduce the abstraction.
+
+---
+
+# Extensibility
+
+Design systems should be open for extension.
+
+Avoid modifications that require changing existing public APIs.
+
+Favor extension points.
+
+---
+
+# Backwards Compatibility
+
+Assume every public API is already being used.
+
+Breaking changes should be avoided.
+
+When unavoidable:
+
+- document them;
+- justify them;
+- version them correctly.
+
+---
+
+# Performance
+
+Architecture should naturally encourage performance.
+
+Prefer:
+
+- lazy loading;
+- code splitting;
+- tree shaking;
+- small dependency graphs.
+
+Avoid unnecessary runtime complexity.
+
+---
+
+# Scalability
+
+Assume the project will grow.
+
+Design for:
+
+- more modules;
+- more contributors;
+- more consumers;
+- more platforms.
+
+Avoid architectures that only work for the current size of the project.
+
+---
+
+# Documentation
+
+Architectural decisions should be documented.
+
+Significant changes should generate:
+
+- ADRs;
+- architecture diagrams (when useful);
+- migration guides (when applicable).
+
+Architecture documentation must evolve with the codebase.
+
+---
+
+# Repository Consistency
+
+New code should follow existing architectural conventions.
+
+Do not introduce alternative patterns unless there is a strong technical justification.
+
+Consistency is more valuable than personal preference.
+
+---
+
+# Refactoring
+
+Refactor only when it improves:
+
+- architecture;
+- maintainability;
+- readability;
+- extensibility.
+
+Avoid refactoring for stylistic reasons alone.
+
+---
+
+# Technical Debt
+
+Technical debt should never be hidden.
+
+If a compromise is necessary:
+
+- document it;
+- explain why it exists;
+- propose a future improvement.
+
+---
+
+# AI Decision Rules
+
+Before implementing anything, always ask yourself:
+
+- Is there already an existing pattern?
+- Does this respect the current architecture?
+- Can this solution scale?
+- Is this introducing unnecessary coupling?
+- Will another engineer understand this in six months?
+- Can this module be tested independently?
+- Is this abstraction justified?
+
+If any answer is "no", reconsider the solution.
+
+---
+
+# Most Important Rule
+
+Architecture is a long-term investment.
+
+Always optimize for maintainability and consistency over short-term implementation speed.

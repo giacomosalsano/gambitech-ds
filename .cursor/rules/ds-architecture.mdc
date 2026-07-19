@@ -1,0 +1,27 @@
+---
+description: Technical constraints for the Design System components and Tailwind v4 setup.
+alwaysApply: true
+---
+
+# Design System Rules
+
+## 1. Component Anatomy
+- All components must be accessible (Radix UI primitives preferred).
+- Use `lucide-react` for default icons, but allow icons to be passed as `children` or props (Dependency Injection) for flexibility.
+- Components must be agnostic of business logic and data fetching.
+
+## 2. Tailwind v4 & Theming
+- Do not use `tailwind.config.js`. Follow Tailwind v4 CSS-first configuration.
+- Components MUST NOT contain hardcoded colors (e.g., `bg-blue-500`).
+- Strictly use semantic tokens (e.g., `bg-primary`, `text-muted-foreground`, `border-destructive`).
+- Theming is controlled by the consumer app via CSS variables (e.g., `--primary: 222.2 47.4% 11.2%;`).
+
+## 3. Shadcn Registry Pattern
+- Structure components so they can be exported as a Shadcn Custom Registry.
+- Primitives live in `/src/registry/ui`.
+- Composites live in `/src/registry/composites`.
+
+## 4. Quality Assurance
+- Every component must include a `.stories.tsx` file (Storybook).
+- Every component must include a `.test.tsx` file (Vitest / React Testing Library).
+- Leave space for i18n (React Intl, next-intl, or standard translation dictionaries) where text is unavoidable.

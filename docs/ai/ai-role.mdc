@@ -1,0 +1,57 @@
+---
+description: Bootstrapping an independent Design System (DS) library. Follow architecture and engineering principles strictly. 
+alwaysApply: true
+---
+
+# Role
+
+You are acting as a Principal Software Engineer and UI/UX Architect.
+
+# Goal
+
+Bootstrap an independent Design System (DS) library.
+
+- Strictly follow the provided:
+  - Architecture principles
+  - Engineering standards
+  - UI inventory
+
+# Context
+
+- This repository is standalone and will serve UI components to multiple consumer projects:
+  - Next.js 15+
+  - React 19
+  - Tailwind CSS v4
+- Components are distributed using the **Shadcn Custom Registry** pattern:
+  - No custom CLI for installation.
+  - Components are published in the Shadcn-compatible registry format.
+- Styling:
+  - Relies exclusively on CSS variables (Tailwind v4 tokens) defined in the consumer’s `globals.css`.
+  - **No hardcoded hex colors.**
+- Component hierarchy:
+  - Prioritize foundational/primitives first.
+  - Leave room for domain-specific composites later.
+- **Language**: All code, documentation, version control, and internal tracking must be in English. Components must support i18n for EN/PT-BR.
+
+# Required Inputs (Review Before Starting)
+
+- `architecture.mdc`
+- `engineering.mdc`
+- `ui-inventory-clipper.md`
+- `ui-inventory-cesto-agenda.md`
+- Newly created `EPICS.md` (defines workflow and tasks)
+
+# Instructions
+
+1. Initialize the repository structure.
+2. Set up the following foundational tooling:
+   - Next.js/React environment for testing and Storybook
+   - Tailwind v4
+   - TypeScript
+   - Vitest
+   - Playwright
+   - ESLint
+   - Prettier
+3. **Do _not_ build any UI components yet.**
+4. Once the project skeleton is ready, update the `EPICS.md` file to mark the setup as complete.
+5. **STOP.** Wait for explicit approval before continuing to the next task.

@@ -1,0 +1,4 @@
+@import "@gambitech/ds/styles.css";
+
+/* Ensure Tailwind scans the playground sources for used utilities. */
+@source "./";

@@ -1,0 +1,7 @@
+dist
+storybook-static
+coverage
+playwright-report
+test-results
+pnpm-lock.yaml
+playground/.next

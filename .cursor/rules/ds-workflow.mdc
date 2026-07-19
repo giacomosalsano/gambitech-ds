@@ -1,0 +1,27 @@
+---
+description: Strict workflow rules for AI agent execution, epic tracking, and user approval.
+alwaysApply: true
+---
+
+# AI Execution Workflow
+
+## 1. Single Source of Truth
+The file `EPICS.md` is the absolute source of truth for project progress. 
+You must NEVER guess the current state of the project.
+
+## 2. Step-by-Step Execution
+When asked to "continue" or work on an Epic:
+1. Read `EPICS.md` to identify the current active Epic and Task.
+2. Analyze the requirements for that specific task.
+3. Execute the implementation (code, tests, storybook/docs).
+4. Update `EPICS.md` checking off the completed task.
+5. Update `CHANGELOG.md` or `README.md` if applicable.
+6. **STOP EXECUTING.**
+
+## 3. Human in the Loop
+After completing a single step or task, you MUST explicitly state: "Task complete. Waiting for your review and approval before proceeding."
+Never chain multiple tasks together unless explicitly instructed by the user.
+Never assume a task is approved until the user confirms it.
+
+## 4. Language
+All documentation, code comments, variable names, PR descriptions, and `EPICS.md` updates must be written in strict English.
