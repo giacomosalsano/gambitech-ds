@@ -4,79 +4,85 @@ import { describe, expect, it, vi } from "vitest";
 
 import { Button, ButtonSkeleton, buttonVariants } from "./button";
 
+let buttonName = "Save";
+const getButton = () => screen.getByRole("button", { name: buttonName });
+const getLink = () => screen.getByRole("link", { name: buttonName });
+
 describe("Button", () => {
   it("renders its children inside a button element by default", () => {
-    render(<Button>Save</Button>);
-    const button = screen.getByRole("button", { name: "Save" });
+    render(<Button>{buttonName}</Button>);
 
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveAttribute("data-slot", "button");
+    expect(getButton()).toBeInTheDocument();
+    expect(getButton()).toHaveAttribute("data-slot", "button");
   });
 
   it("applies variant and size classes", () => {
+    buttonName = "Delete";
     render(
       <Button variant="destructive" size="lg">
-        Delete
+        {buttonName}
       </Button>,
     );
-    const button = screen.getByRole("button", { name: "Delete" });
 
-    expect(button).toHaveClass("bg-destructive");
-    expect(button).toHaveClass("h-10");
+    expect(getButton()).toHaveClass("bg-destructive");
+    expect(getButton()).toHaveClass("h-10");
   });
 
   it("forwards clicks when enabled", async () => {
+    buttonName = "Click";
     const user = userEvent.setup();
     const onClick = vi.fn();
-    render(<Button onClick={onClick}>Click</Button>);
+    render(<Button onClick={onClick}>{buttonName}</Button>);
 
-    await user.click(screen.getByRole("button", { name: "Click" }));
+    await user.click(getButton());
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it("renders as the child element when asChild is set", () => {
+    buttonName = "Docs";
     render(
       <Button asChild>
-        <a href="/docs">Docs</a>
+        <a href="/docs">{buttonName}</a>
       </Button>,
     );
-    const link = screen.getByRole("link", { name: "Docs" });
 
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("data-slot", "button");
+    expect(getLink()).toBeInTheDocument();
+    expect(getLink()).toHaveAttribute("data-slot", "button");
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
   describe("loading state", () => {
     it("announces aria-busy and stays enabled (not disabled)", () => {
-      render(<Button isLoading>Saving</Button>);
-      const button = screen.getByRole("button", { name: "Saving" });
+      buttonName = "Saving";
+      render(<Button isLoading>{buttonName}</Button>);
 
-      expect(button).toHaveAttribute("aria-busy", "true");
-      expect(button).toHaveAttribute("data-loading", "true");
-      expect(button).not.toBeDisabled();
+      expect(getButton()).toHaveAttribute("aria-busy", "true");
+      expect(getButton()).toHaveAttribute("data-loading", "true");
+      expect(getButton()).not.toBeDisabled();
     });
 
     it("suppresses click handlers to prevent duplicate submissions", async () => {
+      buttonName = "Saving";
       const user = userEvent.setup();
       const onClick = vi.fn();
       render(
         <Button isLoading onClick={onClick}>
-          Saving
+          {buttonName}
         </Button>,
       );
 
-      await user.click(screen.getByRole("button", { name: "Saving" }));
+      await user.click(getButton());
 
       expect(onClick).not.toHaveBeenCalled();
     });
   });
 
   it("is inert when disabled", () => {
-    render(<Button disabled>Disabled</Button>);
+    buttonName = "Disabled";
+    render(<Button disabled>{buttonName}</Button>);
 
-    expect(screen.getByRole("button", { name: "Disabled" })).toBeDisabled();
+    expect(getButton()).toBeDisabled();
   });
 
   it("exposes buttonVariants for consumers", () => {
