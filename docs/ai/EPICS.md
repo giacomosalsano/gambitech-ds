@@ -19,12 +19,21 @@
 
 ## Epic 2: Core UI Primitives (Shadcn Baseline)
 
-- [ ] Button & Badge (with variants).
+- [x] Button & Badge (with variants).
 - [ ] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
 - [ ] Dialog & Sheet (Modals and Drawers).
 - [ ] DropdownMenu & Popover.
 - [ ] Card & Separator.
 - [ ] Alert & Toast (Sonner).
+
+> **Button & Badge complete (2026-07-20).** Also introduced a base `Skeleton`
+> primitive and a library-wide loading/skeleton convention (`loading` prop +
+> per-component `<Name>Skeleton`), recorded in `docs/adr/0005`. `Button` ships a
+> `loading` state and `ButtonSkeleton`; `Badge` adds `success`/`warning`/`info`
+> status variants on top of the canonical set. Per-component skeletons for the
+> remaining primitives are rolled out incrementally. The Storybook browser test
+> runner (`@storybook/addon-vitest`) remains deferred; unit tests (Vitest + RTL)
+> are the CI gate.
 
 ## Epic 3: Complex Primitives
 
