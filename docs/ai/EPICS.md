@@ -11,7 +11,7 @@
 - [x] Define the base `globals.css` with default tokens (Clipper neutral theme).
 
 > **Epic 1 complete (2026-07-19).** Additional foundational tooling wired per the
-> role brief: TypeScript (strict), tsup build, Playwright (Storybook-based E2E),
+> role brief: TypeScript (strict), tsdown build, Playwright (Storybook-based E2E),
 > Changesets, a Next.js playground app, and a `components.json` + `registry.json`
 > stub for the shadcn custom registry (Epic 5). Decisions recorded in
 > `docs/adr/0001`–`0003`. **No UI components were built.** Awaiting approval

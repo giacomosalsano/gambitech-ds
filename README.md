@@ -34,7 +34,7 @@ pnpm install
 | ---------------------- | ---------------------------------------------- |
 | `pnpm dev`             | Start Storybook (primary component workbench). |
 | `pnpm dev:playground`  | Start the Next.js playground app.              |
-| `pnpm build`           | Build the library with tsup (`dist/`).         |
+| `pnpm build`           | Build the library with tsdown (`dist/`).       |
 | `pnpm build-storybook` | Build the static Storybook site.               |
 | `pnpm typecheck`       | Run the TypeScript compiler in no-emit mode.   |
 | `pnpm lint`            | Run ESLint.                                    |

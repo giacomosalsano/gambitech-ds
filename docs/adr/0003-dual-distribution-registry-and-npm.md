@@ -29,8 +29,8 @@ versioned-dependency consumers without maintaining two divergent codebases?
 Adopt **dual distribution** from a single `src/` source of truth:
 
 - **Registry**: `registry.json` describes items installable via `npx shadcn add`.
-- **npm package**: `@gambitech/ds`, built with tsup to `dist/`, versioned with
-  Changesets and Semantic Versioning.
+- **npm package**: `@gambitech/ds`, built with tsdown (Rolldown) to `dist/`,
+  versioned with Changesets and Semantic Versioning.
 
 ## Consequences
 
