@@ -19,14 +19,14 @@ const meta = {
       control: "select",
       options: ["default", "sm", "lg", "icon"],
     },
-    loading: { control: "boolean" },
+    isLoading: { control: "boolean" },
     disabled: { control: "boolean" },
   },
   args: {
     children: "Button",
     variant: "default",
     size: "default",
-    loading: false,
+    isLoading: false,
     disabled: false,
   },
 } satisfies Meta<typeof Button>;
@@ -80,7 +80,7 @@ export const WithIcon: Story = {
 
 export const Loading: Story = {
   args: {
-    loading: true,
+    isLoading: true,
     children: "Saving",
   },
 };

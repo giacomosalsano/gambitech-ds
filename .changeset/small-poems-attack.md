@@ -6,11 +6,12 @@ Add the first core UI primitives: `Button`, `Badge`, and a base `Skeleton`.
 
 - `Button` — Radix `Slot` (`asChild`), CVA variants (`default`, `secondary`,
   `destructive`, `outline`, `ghost`, `link`) and sizes (`default`, `sm`, `lg`,
-  `icon`), plus a `loading` state (keeps the control active, announces
+  `icon`), plus an `isLoading` state (keeps the control active, announces
   `aria-busy`, shows a spinner, and suppresses clicks to avoid duplicate
   submissions). Ships a matching `ButtonSkeleton`.
 - `Badge` — CVA variants including status tokens (`success`, `warning`, `info`)
-  in addition to the canonical set, with `asChild` support.
+  in addition to the canonical set, with `asChild` support and a matching
+  `BadgeSkeleton`.
 - `Skeleton` — token-only loading placeholder used as the base for
   per-component skeletons.
 

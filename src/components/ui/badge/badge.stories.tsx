@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CheckCircle2 } from "lucide-react";
 
-import { Badge } from "./badge";
+import { Badge, BadgeSkeleton } from "./badge";
 
 const meta = {
   title: "Primitives/Badge",
@@ -63,5 +63,14 @@ export const WithIcon: Story = {
       <CheckCircle2 />
       Active
     </Badge>
+  ),
+};
+
+export const Skeletons: Story = {
+  render: () => (
+    <div className="flex items-center gap-2">
+      <BadgeSkeleton />
+      <BadgeSkeleton className="w-24" />
+    </div>
   ),
 };

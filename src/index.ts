@@ -7,8 +7,9 @@
 
 export { cn } from "./lib/utils";
 
-export { Badge, badgeVariants } from "./components/ui/badge";
-export type { BadgeProps } from "./components/ui/badge";
+export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
+export type { BadgeProps, BadgeSkeletonProps } from "./components/ui/badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./components/ui/button";
 export type { ButtonProps, ButtonSkeletonProps } from "./components/ui/button";
 export { Skeleton } from "./components/ui/skeleton";
+export type { SkeletonProps } from "./components/ui/skeleton";

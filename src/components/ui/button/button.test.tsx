@@ -50,7 +50,7 @@ describe("Button", () => {
 
   describe("loading state", () => {
     it("announces aria-busy and stays enabled (not disabled)", () => {
-      render(<Button loading>Saving</Button>);
+      render(<Button isLoading>Saving</Button>);
       const button = screen.getByRole("button", { name: "Saving" });
 
       expect(button).toHaveAttribute("aria-busy", "true");
@@ -62,7 +62,7 @@ describe("Button", () => {
       const user = userEvent.setup();
       const onClick = vi.fn();
       render(
-        <Button loading onClick={onClick}>
+        <Button isLoading onClick={onClick}>
           Saving
         </Button>,
       );

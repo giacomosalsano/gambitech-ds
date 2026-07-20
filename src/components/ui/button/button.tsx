@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
+
+import type { ButtonProps, ButtonSkeletonProps } from "./button.types";
 
 const buttonVariants = cva(
   "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap outline-none transition-all focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -35,74 +37,10 @@ const buttonVariants = cva(
   },
 );
 
-interface ButtonProps
-  extends React.ComponentProps<"button">,
-    VariantProps<typeof buttonVariants> {
-  /**
-   * Render the button as its single child element (Radix `Slot`), merging props.
-   * When `asChild` is set, the loading spinner is not injected automatically —
-   * the consumer owns the rendered subtree.
-   */
-  asChild?: boolean;
-  /**
-   * Loading state. The button stays visually active but announces `aria-busy`,
-   * shows a spinner (non-`asChild`), and suppresses click interaction to prevent
-   * duplicate submissions. Use `disabled` for the greyed-out, inert state.
-   */
-  loading?: boolean;
-}
-
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  loading = false,
-  disabled,
-  onClick,
-  children,
-  ...props
-}: ButtonProps) {
-  const Comp = asChild ? Slot : "button";
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (loading) {
-      event.preventDefault();
-      event.stopPropagation();
-      return;
-    }
-    onClick?.(event);
-  };
-
-  return (
-    <Comp
-      data-slot="button"
-      data-loading={loading || undefined}
-      className={cn(buttonVariants({ variant, size, className }))}
-      disabled={asChild ? undefined : disabled}
-      aria-busy={loading || undefined}
-      aria-disabled={loading || undefined}
-      onClick={handleClick}
-      {...props}
-    >
-      {asChild ? (
-        children
-      ) : (
-        <>
-          {loading ? <Loader2 className="animate-spin" aria-hidden="true" /> : null}
-          {children}
-        </>
-      )}
-    </Comp>
-  );
-}
-
+// Heights and radius mirror `buttonVariants` sizes so the placeholder matches
+// the loaded button's vertical footprint; widths are content-dependent defaults.
 const buttonSkeletonVariants = cva("", {
   variants: {
-    // Heights and radius mirror `buttonVariants` sizes so the placeholder
-    // occupies the same vertical footprint as the loaded button. Widths are
-    // content-dependent, so sensible defaults are provided and can be overridden
-    // via `className`.
     size: {
       default: "h-9 w-20 rounded-md",
       sm: "h-8 w-16 rounded-md",
@@ -115,13 +53,51 @@ const buttonSkeletonVariants = cva("", {
   },
 });
 
-interface ButtonSkeletonProps
-  extends React.ComponentProps<typeof Skeleton>,
-    VariantProps<typeof buttonSkeletonVariants> {}
+function Button({
+  className,
+  variant,
+  size,
+  asChild = false,
+  isLoading = false,
+  disabled,
+  onClick,
+  children,
+  ...props
+}: ButtonProps) {
+  const Comp = asChild ? Slot : "button";
 
-/**
- * Loading placeholder that matches the footprint of a `Button` for a given size.
- */
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (isLoading) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+    onClick?.(event);
+  };
+
+  return (
+    <Comp
+      data-slot="button"
+      data-loading={isLoading || undefined}
+      className={cn(buttonVariants({ variant, size, className }))}
+      disabled={asChild ? undefined : disabled}
+      aria-busy={isLoading || undefined}
+      aria-disabled={isLoading || undefined}
+      onClick={handleClick}
+      {...props}
+    >
+      {asChild ? (
+        children
+      ) : (
+        <>
+          {isLoading ? <Loader2 className="animate-spin" aria-hidden="true" /> : null}
+          {children}
+        </>
+      )}
+    </Comp>
+  );
+}
+
 function ButtonSkeleton({ className, size, ...props }: ButtonSkeletonProps) {
   return (
     <Skeleton
@@ -132,5 +108,5 @@ function ButtonSkeleton({ className, size, ...props }: ButtonSkeletonProps) {
   );
 }
 
-export { Button, ButtonSkeleton, buttonVariants };
-export type { ButtonProps, ButtonSkeletonProps };
+export { Button, ButtonSkeleton, buttonVariants, buttonSkeletonVariants };
+export type { ButtonProps, ButtonSkeletonProps } from "./button.types";

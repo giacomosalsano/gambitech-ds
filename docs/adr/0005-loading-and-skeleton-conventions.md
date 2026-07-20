@@ -24,7 +24,7 @@ footprint stay consistent, accessible, and reusable across consumers?
 
 1. **Per-component, ad-hoc states.** Fast, but inconsistent APIs and duplicated
    spinner/placeholder markup across the library and consumers.
-2. **A single generic `Skeleton` + a component-level `loading` prop, with each
+2. **A single generic `Skeleton` + a component-level `isLoading` prop, with each
    primitive composing its own `<Name>Skeleton` from the shared base.**
    Consistent API, reuses each component's own size definitions.
 
@@ -32,12 +32,14 @@ footprint stay consistent, accessible, and reusable across consumers?
 
 Adopt a two-part convention:
 
-1. **Loading state (`loading` prop).** Interactive primitives (starting with
-   `Button`) accept a `loading` boolean. While loading, the component stays
+1. **Loading state (`isLoading` prop).** Interactive primitives (starting with
+   `Button`) accept an `isLoading` boolean. While loading, the component stays
    visually active (not greyed out like `disabled`), sets `aria-busy` and a
    `data-loading` attribute, shows a spinner where applicable, and suppresses
    click interaction to prevent duplicate submissions. `disabled` remains the
-   separate, inert/greyed-out state.
+   separate, inert/greyed-out state. Custom boolean props use an `is` prefix;
+   native DOM attributes (`disabled`) and the Radix `asChild` convention keep
+   their standard names for ecosystem and registry parity.
 
 2. **Skeleton state (base `Skeleton` + per-component `<Name>Skeleton`).** A base
    `Skeleton` primitive provides the animated placeholder (tokens only:
@@ -49,7 +51,7 @@ Adopt a two-part convention:
 
 ## Consequences
 
-- New primitives follow a predictable API: `loading` where interactive, and a
+- New primitives follow a predictable API: `isLoading` where interactive, and a
   colocated `<Name>Skeleton` where a placeholder is useful.
 - The base `Skeleton` primitive is introduced ahead of its explicit slot in
   `EPICS.md` because the skeleton convention depends on it; it is a small,

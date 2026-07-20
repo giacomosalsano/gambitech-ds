@@ -27,13 +27,15 @@
 - [ ] Alert & Toast (Sonner).
 
 > **Button & Badge complete (2026-07-20).** Also introduced a base `Skeleton`
-> primitive and a library-wide loading/skeleton convention (`loading` prop +
-> per-component `<Name>Skeleton`), recorded in `docs/adr/0005`. `Button` ships a
-> `loading` state and `ButtonSkeleton`; `Badge` adds `success`/`warning`/`info`
-> status variants on top of the canonical set. Per-component skeletons for the
-> remaining primitives are rolled out incrementally. The Storybook browser test
-> runner (`@storybook/addon-vitest`) remains deferred; unit tests (Vitest + RTL)
-> are the CI gate.
+> primitive and a library-wide loading/skeleton convention (`isLoading` prop +
+> per-component `<Name>Skeleton`), recorded in `docs/adr/0005`. `Button` ships an
+> `isLoading` state and `ButtonSkeleton`; `Badge` adds `success`/`warning`/`info`
+> status variants on top of the canonical set plus a `BadgeSkeleton`. Types are
+> split into per-component `*.types.ts` files with shared types in
+> `src/lib/types.ts`. Per-component skeletons for the remaining primitives are
+> rolled out incrementally. The Storybook browser test runner
+> (`@storybook/addon-vitest`) remains deferred; unit tests (Vitest + RTL) are the
+> CI gate.
 
 ## Epic 3: Complex Primitives
 

@@ -1,8 +1,10 @@
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
+
+import type { BadgeProps, BadgeSkeletonProps } from "./badge.types";
 
 const badgeVariants = cva(
   "inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3",
@@ -29,13 +31,6 @@ const badgeVariants = cva(
   },
 );
 
-interface BadgeProps
-  extends React.ComponentProps<"span">,
-    VariantProps<typeof badgeVariants> {
-  /** Render the badge as its single child element (Radix `Slot`), merging props. */
-  asChild?: boolean;
-}
-
 function Badge({ className, variant, asChild = false, ...props }: BadgeProps) {
   const Comp = asChild ? Slot : "span";
 
@@ -48,5 +43,17 @@ function Badge({ className, variant, asChild = false, ...props }: BadgeProps) {
   );
 }
 
-export { Badge, badgeVariants };
-export type { BadgeProps };
+// Height and radius match the badge's footprint (text-xs + py-0.5 + border);
+// width is a sensible default that consumers can override via `className`.
+function BadgeSkeleton({ className, ...props }: BadgeSkeletonProps) {
+  return (
+    <Skeleton
+      data-slot="badge-skeleton"
+      className={cn("h-5 w-16 rounded-md", className)}
+      {...props}
+    />
+  );
+}
+
+export { Badge, BadgeSkeleton, badgeVariants };
+export type { BadgeProps, BadgeSkeletonProps } from "./badge.types";
