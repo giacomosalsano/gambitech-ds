@@ -1,12 +1,14 @@
 packages:
   - "playground"
 
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
+# pnpm 11 gates dependency build scripts behind an explicit review.
+# `allowBuilds` (a map of package -> true/false) replaces the removed
+# onlyBuiltDependencies/neverBuiltDependencies settings. Entries must be an
+# explicit boolean; a missing entry (or the auto-generated placeholder) is
+# treated as "unreviewed" and fails install with ERR_PNPM_IGNORED_BUILDS.
+allowBuilds:
+  esbuild: true
+  sharp: true
 
 verifyDepsBeforeRun: false
 confirmModulesPurge: false
-allowBuilds:
-  esbuild: set this to true or false
-  sharp: set this to true or false
