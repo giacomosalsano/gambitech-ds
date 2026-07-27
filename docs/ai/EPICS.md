@@ -29,7 +29,7 @@
 - [x] Dialog & Sheet (Modals and Drawers).
   - [x] Dialog + AlertDialog (`showCloseButton`, `isOutsideDismissible`).
   - [x] Sheet (`side`, `showCloseButton`, `isOutsideDismissible`).
-- [ ] DropdownMenu & Popover.
+- [x] DropdownMenu & Popover.
 - [ ] Card & Separator.
 - [ ] Alert & Toast (Sonner).
 
@@ -94,6 +94,13 @@
 > `sheetContentVariants`. Re-exported from `src/index.ts`. 6 new tests (76
 > total); full gauntlet green. This closes **Dialog & Sheet** — next up:
 > **DropdownMenu & Popover**.
+
+> **DropdownMenu & Popover complete (2026-07-27).** `DropdownMenu` wraps
+> `@radix-ui/react-dropdown-menu` with item/checkbox/radio/label/separator/
+> shortcut/submenu parts and a `destructive` item variant. `Popover` wraps
+> `@radix-ui/react-popover` with trigger/content/anchor. Both use popover
+> tokens only. Re-exported from `src/index.ts`. 7 new tests (83 total); full
+> gauntlet green. Next up: **Card & Separator**.
 
 ## Epic 3: Complex Primitives
 
