@@ -23,7 +23,7 @@
 - [ ] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
   - [x] Label & Input (text/number/etc.) + `InputSkeleton`.
   - [x] Textarea + `TextareaSkeleton`.
-  - [ ] Checkbox.
+  - [x] Checkbox + `CheckboxSkeleton`.
   - [ ] RadioGroup.
   - [ ] Switch.
 - [ ] Dialog & Sheet (Modals and Drawers).
@@ -55,6 +55,13 @@
 > `field-sizing-content` for auto-grow and a matching `TextareaSkeleton`
 > (ADR-0005). Re-exported from `src/index.ts`. 6 new tests (41 total); full
 > gauntlet green. Checkbox, RadioGroup and Switch remain in this task.
+
+> **Checkbox complete (2026-07-27).** Wraps `@radix-ui/react-checkbox`;
+> token-only with `checked`/`indeterminate`/`disabled` and `aria-invalid`
+> states. Indicator swaps a `Check` icon for a `Minus` icon in the indeterminate
+> state (lucide-react). Ships a `CheckboxSkeleton` (ADR-0005). Re-exported from
+> `src/index.ts`. 6 new tests (47 total); full gauntlet green. RadioGroup and
+> Switch remain in this task.
 
 ## Epic 3: Complex Primitives
 
