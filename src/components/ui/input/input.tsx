@@ -19,8 +19,6 @@ function Input({ className, type, ...props }: InputProps) {
   );
 }
 
-// Height and radius mirror the input's footprint so the placeholder occupies the
-// same vertical space; width defaults to full and can be overridden via `className`.
 function InputSkeleton({ className, ...props }: InputSkeletonProps) {
   return (
     <Skeleton
