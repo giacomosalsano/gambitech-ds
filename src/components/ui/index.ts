@@ -68,6 +68,31 @@ export type {
   RadioGroupItemProps,
   RadioGroupItemSkeletonProps,
 } from "./radio-group";
+export {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
+  SheetTitle,
+  SheetTrigger,
+  sheetContentVariants,
+} from "./sheet";
+export type {
+  SheetCloseProps,
+  SheetContentProps,
+  SheetDescriptionProps,
+  SheetFooterProps,
+  SheetHeaderProps,
+  SheetOverlayProps,
+  SheetPortalProps,
+  SheetProps,
+  SheetTitleProps,
+  SheetTriggerProps,
+} from "./sheet";
 export { Skeleton } from "./skeleton";
 export type { SkeletonProps } from "./skeleton";
 export { Switch, SwitchSkeleton } from "./switch";
