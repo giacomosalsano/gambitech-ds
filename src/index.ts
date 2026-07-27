@@ -1,11 +1,68 @@
+/**
+ * Public entry point for @gambitech/ds.
+ *
+ * Primitives are added here as they are implemented (see docs/ai/EPICS.md),
+ * using explicit named exports only.
+ */
+
 export { cn } from "./lib/utils";
 
+export {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./components/ui/alert-dialog";
+export type {
+  AlertDialogActionProps,
+  AlertDialogCancelProps,
+  AlertDialogContentProps,
+  AlertDialogDescriptionProps,
+  AlertDialogFooterProps,
+  AlertDialogHeaderProps,
+  AlertDialogOverlayProps,
+  AlertDialogPortalProps,
+  AlertDialogProps,
+  AlertDialogTitleProps,
+  AlertDialogTriggerProps,
+} from "./components/ui/alert-dialog";
 export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./components/ui/badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./components/ui/button";
 export type { ButtonProps, ButtonSkeletonProps } from "./components/ui/button";
 export { Checkbox, CheckboxSkeleton } from "./components/ui/checkbox";
 export type { CheckboxProps, CheckboxSkeletonProps } from "./components/ui/checkbox";
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "./components/ui/dialog";
+export type {
+  DialogCloseProps,
+  DialogContentProps,
+  DialogDescriptionProps,
+  DialogFooterProps,
+  DialogHeaderProps,
+  DialogOverlayProps,
+  DialogPortalProps,
+  DialogProps,
+  DialogTitleProps,
+  DialogTriggerProps,
+} from "./components/ui/dialog";
 export { Input, InputSkeleton } from "./components/ui/input";
 export type { InputProps, InputSkeletonProps } from "./components/ui/input";
 export { Label } from "./components/ui/label";
