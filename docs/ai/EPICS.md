@@ -27,6 +27,8 @@
   - [x] RadioGroup (+ `RadioGroupItem`, `RadioGroupItemSkeleton`).
   - [x] Switch + `SwitchSkeleton`.
 - [ ] Dialog & Sheet (Modals and Drawers).
+  - [x] Dialog + AlertDialog (`showCloseButton`, `isOutsideDismissible`).
+  - [ ] Sheet.
 - [ ] DropdownMenu & Popover.
 - [ ] Card & Separator.
 - [ ] Alert & Toast (Sonner).
@@ -76,6 +78,14 @@
 > `aria-invalid` states and a sliding thumb. Ships a `SwitchSkeleton` (ADR-0005).
 > Re-exported from `src/index.ts`. 6 new tests (60 total); full gauntlet green.
 > This closes the **Inputs** sub-task of Epic 2 — next up: **Dialog & Sheet**.
+
+> **Dialog & AlertDialog complete (2026-07-27).** First slice of Dialog & Sheet.
+> `Dialog` wraps `@radix-ui/react-dialog` (close button on by default, outside
+> dismiss on by default). `AlertDialog` wraps `@radix-ui/react-alert-dialog`
+> with centered title/description, no X by default, and outside dismiss off by
+> default. Shared content props: `showCloseButton` and `isOutsideDismissible`
+> (boolean `is*` convention). 10 new tests (70 total); full gauntlet green.
+> Sheet remains in this task.
 
 ## Epic 3: Complex Primitives
 
