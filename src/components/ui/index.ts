@@ -8,3 +8,5 @@ export { Label } from "./label";
 export type { LabelProps } from "./label";
 export { Skeleton } from "./skeleton";
 export type { SkeletonProps } from "./skeleton";
+export { Textarea, TextareaSkeleton } from "./textarea";
+export type { TextareaProps, TextareaSkeletonProps } from "./textarea";

@@ -1,10 +1,3 @@
-/**
- * Public entry point for @gambitech/ds.
- *
- * Primitives are added here as they are implemented (see docs/ai/EPICS.md),
- * using explicit named exports only.
- */
-
 export { cn } from "./lib/utils";
 
 export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
@@ -17,3 +10,5 @@ export { Label } from "./components/ui/label";
 export type { LabelProps } from "./components/ui/label";
 export { Skeleton } from "./components/ui/skeleton";
 export type { SkeletonProps } from "./components/ui/skeleton";
+export { Textarea, TextareaSkeleton } from "./components/ui/textarea";
+export type { TextareaProps, TextareaSkeletonProps } from "./components/ui/textarea";
