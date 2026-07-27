@@ -82,10 +82,10 @@
 > **Dialog & AlertDialog complete (2026-07-27).** First slice of Dialog & Sheet.
 > `Dialog` wraps `@radix-ui/react-dialog` (close button on by default, outside
 > dismiss on by default). `AlertDialog` wraps `@radix-ui/react-alert-dialog`
-> with centered title/description, no X by default, and outside dismiss off by
-> default. Shared content props: `showCloseButton` and `isOutsideDismissible`
-> (boolean `is*` convention). 10 new tests (70 total); full gauntlet green.
-> Sheet remains in this task.
+> with centered title, description and footer actions, no X by default, and
+> outside dismiss off by default. Shared content props: `showCloseButton` and
+> `isOutsideDismissible` (boolean `is*` convention). 10 new tests (70 total);
+> full gauntlet green. Sheet remains in this task.
 
 > **Sheet complete — Dialog & Sheet task done (2026-07-27).** Drawer built on
 > `@radix-ui/react-dialog` with CVA `side` variants (`top`/`right`/`bottom`/

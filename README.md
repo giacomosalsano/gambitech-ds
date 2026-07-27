@@ -59,12 +59,14 @@ pnpm install
 
 ```
 src/            Library source (published package)
-  lib/          Shared utilities (cn, ...)
+  components/   UI primitives (ui/) and future composites
+  lib/          Shared utilities and types (cn, AsChildProps, ...)
   styles/       Design tokens (globals.css)
 .storybook/     Storybook (Vite) configuration
 playground/     Private Next.js app for local development (not published)
 docs/           Architecture, engineering and AI planning docs
   adr/          Architecture Decision Records
+  ai/           EPICS tracking and AI workflow docs
 tests/          Playwright end-to-end tests
 ```
 

@@ -32,7 +32,7 @@ our tokens and naming — see `docs/adr/0001` and `docs/adr/0004`.
 - **Explicit named exports.** Re-export each component from `src/index.ts`.
 - **`cn` for class composition.** Import from `@/lib/utils`.
 - **i18n-ready.** Components render no hardcoded user-facing copy; text is
-  passed via props/children. Examples default to pt-BR.
+  passed via props/children. Stories and docs use English.
 
 ### File layout (folder per component)
 
@@ -85,3 +85,11 @@ A component is complete only when:
 
 - Follow [Conventional Commits](https://www.conventionalcommits.org/).
 - Record user-facing changes with `pnpm changeset`.
+
+## Language
+
+All documentation, code comments, variable names, commit messages, PR
+descriptions, Storybook copy, and `EPICS.md` updates must be written in
+**English**. Consumer apps may localize UI strings; the design system itself
+stays English in source and docs, while remaining i18n-ready (no hardcoded
+user-facing copy inside components).
