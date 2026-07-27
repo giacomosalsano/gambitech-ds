@@ -21,6 +21,11 @@
 
 - [x] Button & Badge (with variants).
 - [ ] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
+  - [x] Label & Input (text/number/etc.) + `InputSkeleton`.
+  - [ ] Textarea.
+  - [ ] Checkbox.
+  - [ ] RadioGroup.
+  - [ ] Switch.
 - [ ] Dialog & Sheet (Modals and Drawers).
 - [ ] DropdownMenu & Popover.
 - [ ] Card & Separator.
@@ -36,6 +41,14 @@
 > rolled out incrementally. The Storybook browser test runner
 > (`@storybook/addon-vitest`) remains deferred; unit tests (Vitest + RTL) are the
 > CI gate.
+
+> **Label & Input complete (2026-07-27).** First slice of the Inputs task,
+> started with the pair because of their accessibility coupling (`htmlFor`/`id`,
+> click-to-focus). `Label` wraps `@radix-ui/react-label`; `Input` is a
+> token-only native input with `aria-invalid` and `disabled` states plus an
+> `InputSkeleton` (ADR-0005). Both are re-exported from `src/index.ts`. 10 new
+> tests (35 total); full gauntlet green. Textarea, Checkbox, RadioGroup and
+> Switch remain in this task.
 
 ## Epic 3: Complex Primitives
 
