@@ -39,6 +39,7 @@ our tokens and naming — see `docs/adr/0001` and `docs/adr/0004`.
 ```
 src/components/ui/<name>/
   <name>.tsx           # implementation
+  <name>.types.ts      # component props/types (shared types in src/lib/types.ts)
   <name>.stories.tsx   # Storybook stories (light + dark via addon-themes)
   <name>.test.tsx      # unit tests (Vitest + RTL)
   index.ts             # explicit exports for this component
@@ -61,9 +62,10 @@ pnpm exec playwright install chromium
 
 **Story/interaction tests** use `@storybook/addon-themes` (light/dark toggle)
 and `@storybook/addon-vitest` (Test panel in the Storybook UI). The browser-mode
-Vitest runner that executes stories as tests will be wired together with the
-first primitive in Epic 2, once the Vitest 4 Playwright provider is pinned and
-`chromium` is installed. Until then, run stories interactively via `pnpm dev`.
+Vitest runner that executes stories as tests is **deferred**: unit tests
+(Vitest + RTL, jsdom) are the CI gate. Wiring it requires pinning the Vitest 4
+Playwright provider and installing `chromium`. Until then, run stories
+interactively via `pnpm dev`.
 
 ## Definition of Done (per component)
 
