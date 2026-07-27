@@ -20,5 +20,7 @@ export type {
 } from "./radio-group";
 export { Skeleton } from "./skeleton";
 export type { SkeletonProps } from "./skeleton";
+export { Switch, SwitchSkeleton } from "./switch";
+export type { SwitchProps, SwitchSkeletonProps } from "./switch";
 export { Textarea, TextareaSkeleton } from "./textarea";
 export type { TextareaProps, TextareaSkeletonProps } from "./textarea";

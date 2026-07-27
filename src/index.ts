@@ -22,5 +22,7 @@ export type {
 } from "./components/ui/radio-group";
 export { Skeleton } from "./components/ui/skeleton";
 export type { SkeletonProps } from "./components/ui/skeleton";
+export { Switch, SwitchSkeleton } from "./components/ui/switch";
+export type { SwitchProps, SwitchSkeletonProps } from "./components/ui/switch";
 export { Textarea, TextareaSkeleton } from "./components/ui/textarea";
 export type { TextareaProps, TextareaSkeletonProps } from "./components/ui/textarea";
