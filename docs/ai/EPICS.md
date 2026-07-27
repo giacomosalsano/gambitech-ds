@@ -22,7 +22,7 @@
 - [x] Button & Badge (with variants).
 - [ ] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
   - [x] Label & Input (text/number/etc.) + `InputSkeleton`.
-  - [ ] Textarea.
+  - [x] Textarea + `TextareaSkeleton`.
   - [ ] Checkbox.
   - [ ] RadioGroup.
   - [ ] Switch.
@@ -49,6 +49,12 @@
 > `InputSkeleton` (ADR-0005). Both are re-exported from `src/index.ts`. 10 new
 > tests (35 total); full gauntlet green. Textarea, Checkbox, RadioGroup and
 > Switch remain in this task.
+
+> **Textarea complete (2026-07-27).** Token-only native `<textarea>` sharing the
+> `Input` visual language (border/focus/`aria-invalid`/`disabled`) plus
+> `field-sizing-content` for auto-grow and a matching `TextareaSkeleton`
+> (ADR-0005). Re-exported from `src/index.ts`. 6 new tests (41 total); full
+> gauntlet green. Checkbox, RadioGroup and Switch remain in this task.
 
 ## Epic 3: Complex Primitives
 
