@@ -20,12 +20,12 @@
 ## Epic 2: Core UI Primitives (Shadcn Baseline)
 
 - [x] Button & Badge (with variants).
-- [ ] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
+- [x] Inputs (Text, Number, Textarea, Checkbox, Radio, Switch).
   - [x] Label & Input (text/number/etc.) + `InputSkeleton`.
   - [x] Textarea + `TextareaSkeleton`.
   - [x] Checkbox + `CheckboxSkeleton`.
   - [x] RadioGroup (+ `RadioGroupItem`, `RadioGroupItemSkeleton`).
-  - [ ] Switch.
+  - [x] Switch + `SwitchSkeleton`.
 - [ ] Dialog & Sheet (Modals and Drawers).
 - [ ] DropdownMenu & Popover.
 - [ ] Card & Separator.
@@ -67,7 +67,15 @@
 > `RadioGroup` + `RadioGroupItem` pair; token-only with single-selection,
 > `disabled` and `aria-invalid` states and a filled `Circle` indicator. Ships a
 > `RadioGroupItemSkeleton` (ADR-0005). Re-exported from `src/index.ts`. 5 new
-> tests (52 total); full gauntlet green. Switch remains in this task.
+> tests (52 total); full gauntlet green. Switch remains in this task. Later
+> extended with an `orientation` prop (vertical default / horizontal layout,
+> also driving `aria-orientation` and keyboard navigation), +2 tests.
+
+> **Switch complete — Inputs task done (2026-07-27).** Wraps
+> `@radix-ui/react-switch`; token-only with `checked`/`disabled` and
+> `aria-invalid` states and a sliding thumb. Ships a `SwitchSkeleton` (ADR-0005).
+> Re-exported from `src/index.ts`. 6 new tests (60 total); full gauntlet green.
+> This closes the **Inputs** sub-task of Epic 2 — next up: **Dialog & Sheet**.
 
 ## Epic 3: Complex Primitives
 
