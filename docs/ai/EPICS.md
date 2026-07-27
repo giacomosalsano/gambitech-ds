@@ -26,9 +26,9 @@
   - [x] Checkbox + `CheckboxSkeleton`.
   - [x] RadioGroup (+ `RadioGroupItem`, `RadioGroupItemSkeleton`).
   - [x] Switch + `SwitchSkeleton`.
-- [ ] Dialog & Sheet (Modals and Drawers).
+- [x] Dialog & Sheet (Modals and Drawers).
   - [x] Dialog + AlertDialog (`showCloseButton`, `isOutsideDismissible`).
-  - [ ] Sheet.
+  - [x] Sheet (`side`, `showCloseButton`, `isOutsideDismissible`).
 - [ ] DropdownMenu & Popover.
 - [ ] Card & Separator.
 - [ ] Alert & Toast (Sonner).
@@ -86,6 +86,14 @@
 > default. Shared content props: `showCloseButton` and `isOutsideDismissible`
 > (boolean `is*` convention). 10 new tests (70 total); full gauntlet green.
 > Sheet remains in this task.
+
+> **Sheet complete — Dialog & Sheet task done (2026-07-27).** Drawer built on
+> `@radix-ui/react-dialog` with CVA `side` variants (`top`/`right`/`bottom`/
+> `left`, default `right`). Shares Dialog dismiss API (`showCloseButton`
+> default `true`, `isOutsideDismissible` default `true`). Exposes
+> `sheetContentVariants`. Re-exported from `src/index.ts`. 6 new tests (76
+> total); full gauntlet green. This closes **Dialog & Sheet** — next up:
+> **DropdownMenu & Popover**.
 
 ## Epic 3: Complex Primitives
 
