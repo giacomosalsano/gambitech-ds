@@ -4,6 +4,8 @@ export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./components/ui/badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./components/ui/button";
 export type { ButtonProps, ButtonSkeletonProps } from "./components/ui/button";
+export { Checkbox, CheckboxSkeleton } from "./components/ui/checkbox";
+export type { CheckboxProps, CheckboxSkeletonProps } from "./components/ui/checkbox";
 export { Input, InputSkeleton } from "./components/ui/input";
 export type { InputProps, InputSkeletonProps } from "./components/ui/input";
 export { Label } from "./components/ui/label";

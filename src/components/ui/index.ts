@@ -2,6 +2,8 @@ export { Badge, BadgeSkeleton, badgeVariants } from "./badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./button";
 export type { ButtonProps, ButtonSkeletonProps } from "./button";
+export { Checkbox, CheckboxSkeleton } from "./checkbox";
+export type { CheckboxProps, CheckboxSkeletonProps } from "./checkbox";
 export { Input, InputSkeleton } from "./input";
 export type { InputProps, InputSkeletonProps } from "./input";
 export { Label } from "./label";
