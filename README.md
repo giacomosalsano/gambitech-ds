@@ -14,12 +14,13 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Foundation & tooling phase. No UI components are published yet.
-> See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> **Status:** Epic 2 (core UI primitives) in progress. Primitives are published
+> incrementally — currently `Button`, `Badge`, `Skeleton`, `Label`, `Input` and
+> `Textarea`. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
-- Node.js >= 20
+- Node.js >= 22.13
 - pnpm (managed via Corepack)
 
 ## Getting started
