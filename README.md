@@ -15,8 +15,8 @@ done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
 > **Status:** Epic 2 (core UI primitives) in progress. Primitives are published
-> incrementally — currently `Button`, `Badge`, `Skeleton`, `Label`, `Input` and
-> `Textarea`. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> incrementally (inputs complete; `Dialog` / `AlertDialog` added — Sheet next).
+> See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
