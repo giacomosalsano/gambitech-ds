@@ -48,6 +48,26 @@ export type {
 } from "./components/ui/alert-dialog";
 export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./components/ui/badge";
+export {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbSkeleton,
+} from "./components/ui/breadcrumb";
+export type {
+  BreadcrumbEllipsisProps,
+  BreadcrumbItemProps,
+  BreadcrumbLinkProps,
+  BreadcrumbListProps,
+  BreadcrumbPageProps,
+  BreadcrumbProps,
+  BreadcrumbSeparatorProps,
+  BreadcrumbSkeletonProps,
+} from "./components/ui/breadcrumb";
 export { Button, ButtonSkeleton, buttonVariants } from "./components/ui/button";
 export type { ButtonProps, ButtonSkeletonProps } from "./components/ui/button";
 export {
@@ -255,6 +275,21 @@ export { Toaster, toast } from "./components/ui/sonner";
 export type { ToasterProps } from "./components/ui/sonner";
 export { Switch, SwitchSkeleton } from "./components/ui/switch";
 export type { SwitchProps, SwitchSkeletonProps } from "./components/ui/switch";
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsSkeleton,
+  TabsTrigger,
+  tabsListVariants,
+} from "./components/ui/tabs";
+export type {
+  TabsContentProps,
+  TabsListProps,
+  TabsProps,
+  TabsSkeletonProps,
+  TabsTriggerProps,
+} from "./components/ui/tabs";
 export {
   Table,
   TableBody,

@@ -39,6 +39,26 @@ export type {
 } from "./alert-dialog";
 export { Badge, BadgeSkeleton, badgeVariants } from "./badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./badge";
+export {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbSkeleton,
+} from "./breadcrumb";
+export type {
+  BreadcrumbEllipsisProps,
+  BreadcrumbItemProps,
+  BreadcrumbLinkProps,
+  BreadcrumbListProps,
+  BreadcrumbPageProps,
+  BreadcrumbProps,
+  BreadcrumbSeparatorProps,
+  BreadcrumbSkeletonProps,
+} from "./breadcrumb";
 export { Button, ButtonSkeleton, buttonVariants } from "./button";
 export type { ButtonProps, ButtonSkeletonProps } from "./button";
 export {
@@ -246,6 +266,21 @@ export { Toaster, toast } from "./sonner";
 export type { ToasterProps } from "./sonner";
 export { Switch, SwitchSkeleton } from "./switch";
 export type { SwitchProps, SwitchSkeletonProps } from "./switch";
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsSkeleton,
+  TabsTrigger,
+  tabsListVariants,
+} from "./tabs";
+export type {
+  TabsContentProps,
+  TabsListProps,
+  TabsProps,
+  TabsSkeletonProps,
+  TabsTriggerProps,
+} from "./tabs";
 export {
   Table,
   TableBody,
