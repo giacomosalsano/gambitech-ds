@@ -14,8 +14,8 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Epic 2 (core UI primitives) in progress. Inputs, Dialog & Sheet,
-> and DropdownMenu & Popover are complete — next: Card & Separator. See
+> **Status:** Epic 2 (core UI primitives) in progress. Card & Separator are
+> complete — next: Alert & Toast (Sonner). See
 > [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
