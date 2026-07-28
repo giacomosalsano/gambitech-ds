@@ -28,6 +28,26 @@ export { Badge, BadgeSkeleton, badgeVariants } from "./badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./button";
 export type { ButtonProps, ButtonSkeletonProps } from "./button";
+export {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardSkeleton,
+  CardTitle,
+} from "./card";
+export type {
+  CardActionProps,
+  CardContentProps,
+  CardDescriptionProps,
+  CardFooterProps,
+  CardHeaderProps,
+  CardProps,
+  CardSkeletonProps,
+  CardTitleProps,
+} from "./card";
 export { Checkbox, CheckboxSkeleton } from "./checkbox";
 export type { CheckboxProps, CheckboxSkeletonProps } from "./checkbox";
 export {
@@ -114,6 +134,8 @@ export type {
   RadioGroupItemProps,
   RadioGroupItemSkeletonProps,
 } from "./radio-group";
+export { Separator } from "./separator";
+export type { SeparatorProps } from "./separator";
 export {
   Sheet,
   SheetClose,

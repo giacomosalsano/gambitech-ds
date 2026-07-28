@@ -37,6 +37,26 @@ export { Badge, BadgeSkeleton, badgeVariants } from "./components/ui/badge";
 export type { BadgeProps, BadgeSkeletonProps } from "./components/ui/badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./components/ui/button";
 export type { ButtonProps, ButtonSkeletonProps } from "./components/ui/button";
+export {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardSkeleton,
+  CardTitle,
+} from "./components/ui/card";
+export type {
+  CardActionProps,
+  CardContentProps,
+  CardDescriptionProps,
+  CardFooterProps,
+  CardHeaderProps,
+  CardProps,
+  CardSkeletonProps,
+  CardTitleProps,
+} from "./components/ui/card";
 export { Checkbox, CheckboxSkeleton } from "./components/ui/checkbox";
 export type { CheckboxProps, CheckboxSkeletonProps } from "./components/ui/checkbox";
 export {
@@ -123,6 +143,8 @@ export type {
   RadioGroupItemProps,
   RadioGroupItemSkeletonProps,
 } from "./components/ui/radio-group";
+export { Separator } from "./components/ui/separator";
+export type { SeparatorProps } from "./components/ui/separator";
 export {
   Sheet,
   SheetClose,
