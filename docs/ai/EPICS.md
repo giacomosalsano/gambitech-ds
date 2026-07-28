@@ -120,9 +120,51 @@
 
 ## Epic 3: Complex Primitives
 
-- [ ] Table & Pagination.
-- [ ] Calendar (date-fns) & Command (Combobox).
+- [x] Table & Pagination.
+- [x] Calendar (react-day-picker + date-fns).
+- [x] DatePicker (single).
+- [x] DatePickerRange.
+- [x] Command (Combobox).
 - [ ] Tabs & Breadcrumb.
+
+> **Table & Pagination complete (2026-07-28).** `Table` is a compound HTML
+> table (`Header`/`Body`/`Footer`/`Row`/`Head`/`Cell`/`Caption`) with an
+> overflow container, selected-row tokens, and sortable headers (`isSortable`
+> / `sortDirection` / `onSort`, plus `getNextTableSortDirection` helper).
+> Row reordering stays with the consumer (numeric or alphabetical
+> comparators). Ships a `TableSkeleton` (ADR-0005). `Pagination` is a
+> navigation compound (`Content`/`Item`/`Link`/`Previous`/`Next`/`Ellipsis`)
+> built on `buttonVariants`, with overridable labels/children for i18n.
+> Re-exported from `src/index.ts`. 120 tests total; full gauntlet green. Next
+> up: **Calendar & Command**.
+
+> **Calendar complete (2026-07-28).** Wraps `react-day-picker` v10 with
+> token-only styling (single/range modes, dropdown caption, outside days).
+> Ships `CalendarDayButton` and `CalendarSkeleton` (ADR-0005). Adds
+> `react-day-picker` + `date-fns` dependencies. Re-exported from
+> `src/index.ts`. 6 new tests (126 total); full gauntlet green. Next up:
+> **DatePicker (single)**, then **DatePickerRange**, then **Command**.
+
+> **DatePicker complete (2026-07-28).** Composes `Popover` + `Button` +
+> `Calendar` for single-date selection. Optional `showTodayButton` navigates
+> the visible month to today **without selecting** the date
+> (`todayButtonLabel` overridable for i18n). Ships `DatePickerSkeleton`
+> (ADR-0005). Re-exported from `src/index.ts`. 7 new tests (133 total); full
+> gauntlet green. Next up: **DatePickerRange**.
+
+> **DatePickerRange complete (2026-07-28).** Composes `Popover` + `Button` +
+> `Calendar` (`mode="range"`, default two months). Same `showTodayButton`
+> behavior as DatePicker (navigate only, no selection). Closes after the
+> second selection gesture (react-day-picker sets `from===to` on first click).
+> Ships `DatePickerRangeSkeleton` (ADR-0005). Re-exported from `src/index.ts`.
+> 7 new tests (140 total); full gauntlet green. Next up: **Command**.
+
+> **Command complete (2026-07-28).** Wraps `cmdk` with token-only styling
+> (`Input`/`List`/`Empty`/`Group`/`Item`/`Separator`/`Shortcut`). Ships
+> `CommandDialog` (palette over `Dialog`) and `CommandSkeleton` (ADR-0005).
+> Combobox pattern is composition (`Popover` + `Command`), shown in Storybook.
+> Adds `cmdk` dependency. Re-exported from `src/index.ts`. 6 new tests (146
+> total); full gauntlet green. Next up: **Tabs & Breadcrumb**.
 
 ## Epic 4: Clipper Domain Composites (Agnostic)
 
