@@ -58,14 +58,16 @@ pnpm install
 
 ```
 src/            Library source (published package)
-  components/   UI primitives (ui/) and future composites
+  components/
+    ui/         Primitives (src/components/ui/<name>/)
+    composites/ Domain-agnostic composites (Epic 4+)
   lib/          Shared utilities and types (cn, AsChildProps, ...)
   styles/       Design tokens (globals.css)
 .storybook/     Storybook (Vite) configuration
 playground/     Private Next.js app for local development (not published)
 docs/           Architecture, engineering and AI planning docs
   adr/          Architecture Decision Records
-  ai/           EPICS tracking and AI workflow docs
+  ai/           EPICS tracking and AI workflow docs (docs/ai/EPICS.md)
 tests/          Playwright end-to-end tests
 ```
 

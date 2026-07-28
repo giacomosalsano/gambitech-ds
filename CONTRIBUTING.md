@@ -36,6 +36,8 @@ our tokens and naming — see `docs/adr/0001` and `docs/adr/0004`.
 
 ### File layout (folder per component)
 
+Primitives:
+
 ```
 src/components/ui/<name>/
   <name>.tsx           # implementation
@@ -44,6 +46,9 @@ src/components/ui/<name>/
   <name>.test.tsx      # unit tests (Vitest + RTL)
   index.ts             # explicit exports for this component
 ```
+
+Composites (Epic 4+) use the same colocated layout under
+`src/components/composites/<name>/`.
 
 Then re-export from `src/index.ts`.
 
@@ -89,7 +94,7 @@ A component is complete only when:
 ## Language
 
 All documentation, code comments, variable names, commit messages, PR
-descriptions, Storybook copy, and `EPICS.md` updates must be written in
+descriptions, Storybook copy, and `docs/ai/EPICS.md` updates must be written in
 **English**. Consumer apps may localize UI strings; the design system itself
 stays English in source and docs, while remaining i18n-ready (no hardcoded
 user-facing copy inside components).

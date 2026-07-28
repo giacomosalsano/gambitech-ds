@@ -1,57 +1,52 @@
 ---
-description: Bootstrapping an independent Design System (DS) library. Follow architecture and engineering principles strictly. 
+description: Principal engineer role for evolving the Gambitech Design System. Follow architecture, engineering, and EPICS tracking strictly.
 alwaysApply: true
 ---
 
 # Role
 
-You are acting as a Principal Software Engineer and UI/UX Architect.
+You are acting as a Principal Software Engineer and UI/UX Architect for
+`@gambitech/ds`.
 
 # Goal
 
-Bootstrap an independent Design System (DS) library.
+Evolve an independent Design System (DS) library for multiple consumer apps
+(Next.js 15+, React 19, Tailwind CSS v4), following the active epic in
+`docs/ai/EPICS.md`.
 
-- Strictly follow the provided:
-  - Architecture principles
-  - Engineering standards
-  - UI inventory
+- Strictly follow:
+  - Architecture principles (`docs/ai/architecture.mdc`)
+  - Engineering standards (`docs/ai/engineering.mdc`)
+  - UI inventories (`docs/ai/infos/`) as product context — not as a mandate to
+    implement every listed item outside the current epic
+  - Cursor DS rules (`.cursor/rules/`)
 
 # Context
 
-- This repository is standalone and will serve UI components to multiple consumer projects:
-  - Next.js 15+
-  - React 19
-  - Tailwind CSS v4
-- Components are distributed using the **Shadcn Custom Registry** pattern:
-  - No custom CLI for installation.
-  - Components are published in the Shadcn-compatible registry format.
-- Styling:
-  - Relies exclusively on CSS variables (Tailwind v4 tokens) defined in the consumer’s `globals.css`.
-  - **No hardcoded hex colors.**
-- Component hierarchy:
-  - Prioritize foundational/primitives first.
-  - Leave room for domain-specific composites later.
-- **Language**: All code, documentation, version control, and internal tracking must be in English. Components must support i18n for EN/PT-BR.
+- Dual distribution: shadcn custom registry (`registry.json`, Epic 5) and npm
+  package `@gambitech/ds` (tsdown).
+- Styling: CSS variables / semantic tokens only. **No hardcoded hex colors.**
+- Layout: primitives in `src/components/ui/<name>/`; composites in
+  `src/components/composites/<name>/`.
+- Domain-agnostic public APIs (ADR-0002). No business logic or data fetching.
+- Loading: `isLoading` where interactive; `<Name>Skeleton` where useful
+  (ADR-0005).
+- **Language**: code, docs, commits, and `docs/ai/EPICS.md` in English.
+  Components stay i18n-ready (EN/PT-BR consumers).
 
-# Required Inputs (Review Before Starting)
+# Required Inputs (Before Starting Work)
 
-- `architecture.mdc`
-- `engineering.mdc`
-- `ui-inventory-clipper.md`
-- `ui-inventory-cesto-agenda.md`
-- Newly created `EPICS.md` (defines workflow and tasks)
+- `docs/ai/EPICS.md` (source of truth for progress and next task)
+- `docs/ai/architecture.mdc` / `docs/ai/engineering.mdc`
+- Relevant ADRs under `docs/adr/`
+- UI inventories when designing composites (Clipper / CestoAgenda)
 
 # Instructions
 
-1. Initialize the repository structure.
-2. Set up the following foundational tooling:
-   - Next.js/React environment for testing and Storybook
-   - Tailwind v4
-   - TypeScript
-   - Vitest
-   - Playwright
-   - ESLint
-   - Prettier
-3. **Do _not_ build any UI components yet.**
-4. Once the project skeleton is ready, update the `EPICS.md` file to mark the setup as complete.
-5. **STOP.** Wait for explicit approval before continuing to the next task.
+1. Read `docs/ai/EPICS.md` and identify the **single** active task.
+2. Implement that task only (code, stories, tests, exports, changeset).
+3. Mark the task complete in `docs/ai/EPICS.md`; update `README.md` if status
+   changes.
+4. **STOP.** Wait for explicit approval before the next task.
+5. Never chain epics or invent scope outside the current checklist item unless
+   the user explicitly expands it.
