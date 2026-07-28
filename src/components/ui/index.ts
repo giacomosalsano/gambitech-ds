@@ -42,6 +42,30 @@ export type { BadgeProps, BadgeSkeletonProps } from "./badge";
 export { Button, ButtonSkeleton, buttonVariants } from "./button";
 export type { ButtonProps, ButtonSkeletonProps } from "./button";
 export {
+  Calendar,
+  CalendarDayButton,
+  CalendarSkeleton,
+} from "./calendar";
+export type {
+  CalendarDayButtonProps,
+  CalendarProps,
+  CalendarSkeletonProps,
+} from "./calendar";
+export { DatePicker, DatePickerSkeleton } from "./date-picker";
+export type {
+  DatePickerProps,
+  DatePickerSkeletonProps,
+} from "./date-picker";
+export {
+  DatePickerRange,
+  DatePickerRangeSkeleton,
+} from "./date-picker-range";
+export type {
+  DatePickerRangeProps,
+  DatePickerRangeSkeletonProps,
+  DateRange,
+} from "./date-picker-range";
+export {
   Card,
   CardAction,
   CardContent,
@@ -63,6 +87,30 @@ export type {
 } from "./card";
 export { Checkbox, CheckboxSkeleton } from "./checkbox";
 export type { CheckboxProps, CheckboxSkeletonProps } from "./checkbox";
+export {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+  CommandSkeleton,
+} from "./command";
+export type {
+  CommandDialogProps,
+  CommandEmptyProps,
+  CommandGroupProps,
+  CommandInputProps,
+  CommandItemProps,
+  CommandListProps,
+  CommandProps,
+  CommandSeparatorProps,
+  CommandShortcutProps,
+  CommandSkeletonProps,
+} from "./command";
 export {
   Dialog,
   DialogClose,
@@ -126,6 +174,24 @@ export type { InputProps, InputSkeletonProps } from "./input";
 export { Label } from "./label";
 export type { LabelProps } from "./label";
 export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "./pagination";
+export type {
+  PaginationContentProps,
+  PaginationEllipsisProps,
+  PaginationItemProps,
+  PaginationLinkProps,
+  PaginationNextProps,
+  PaginationPreviousProps,
+  PaginationProps,
+} from "./pagination";
+export {
   Popover,
   PopoverAnchor,
   PopoverContent,
@@ -180,5 +246,29 @@ export { Toaster, toast } from "./sonner";
 export type { ToasterProps } from "./sonner";
 export { Switch, SwitchSkeleton } from "./switch";
 export type { SwitchProps, SwitchSkeletonProps } from "./switch";
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableSkeleton,
+  getNextTableSortDirection,
+} from "./table";
+export type {
+  TableBodyProps,
+  TableCaptionProps,
+  TableCellProps,
+  TableFooterProps,
+  TableHeadProps,
+  TableHeaderProps,
+  TableProps,
+  TableRowProps,
+  TableSkeletonProps,
+  TableSortDirection,
+} from "./table";
 export { Textarea, TextareaSkeleton } from "./textarea";
 export type { TextareaProps, TextareaSkeletonProps } from "./textarea";
