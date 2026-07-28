@@ -125,7 +125,7 @@
 - [x] DatePicker (single).
 - [x] DatePickerRange.
 - [x] Command (Combobox).
-- [ ] Tabs & Breadcrumb.
+- [x] Tabs & Breadcrumb.
 
 > **Table & Pagination complete (2026-07-28).** `Table` is a compound HTML
 > table (`Header`/`Body`/`Footer`/`Row`/`Head`/`Cell`/`Caption`) with an
@@ -165,6 +165,15 @@
 > Combobox pattern is composition (`Popover` + `Command`), shown in Storybook.
 > Adds `cmdk` dependency. Re-exported from `src/index.ts`. 6 new tests (146
 > total); full gauntlet green. Next up: **Tabs & Breadcrumb**.
+
+> **Tabs & Breadcrumb complete — Epic 3 done (2026-07-28).** `Tabs` wraps
+> `@radix-ui/react-tabs` with horizontal/vertical orientation, list variants
+> (`default`/`line`), and `TabsSkeleton` (ADR-0005). `Breadcrumb` is a compound
+> nav trail (`List`/`Item`/`Link`/`Page`/`Separator`/`Ellipsis`) with `asChild`
+> on links, overridable `aria-label`/separator for i18n, and
+> `BreadcrumbSkeleton` (ADR-0005). Adds `@radix-ui/react-tabs`. Re-exported
+> from `src/index.ts`. 10 new tests (156 total); full gauntlet green. This
+> closes **Epic 3** — next up: **Epic 4 (AppShell)**.
 
 ## Epic 4: Clipper Domain Composites (Agnostic)
 
