@@ -31,7 +31,7 @@
   - [x] Sheet (`side`, `showCloseButton`, `isOutsideDismissible`).
 - [x] DropdownMenu & Popover.
 - [x] Card & Separator.
-- [ ] Alert & Toast (Sonner).
+- [x] Alert & Toast (Sonner).
 
 > **Button & Badge complete (2026-07-20).** Also introduced a base `Skeleton`
 > primitive and a library-wide loading/skeleton convention (`isLoading` prop +
@@ -109,6 +109,14 @@
 > decorative mode (`bg-border`). Re-exported from `src/index.ts`. 9 new tests
 > (92 total); full gauntlet green. This closes **Card & Separator** — next up:
 > **Alert & Toast (Sonner)**.
+
+> **Alert & Toast (Sonner) complete — Epic 2 done (2026-07-28).** `Alert` is an
+> inline `role="alert"` banner (`Title`/`Description`) with status variants
+> (`default`/`destructive`/`success`/`warning`/`info`) plus `AlertSkeleton`
+> (ADR-0005). Distinct from `AlertDialog` (modal confirm). `Toaster` + `toast`
+> wrap Sonner with popover tokens; theme is a prop (no `next-themes` coupling).
+> Re-exported from `src/index.ts`. 14 new tests (106 total); full gauntlet
+> green. This closes **Epic 2** — next up: **Epic 3 (Table & Pagination)**.
 
 ## Epic 3: Complex Primitives
 
