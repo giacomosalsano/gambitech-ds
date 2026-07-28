@@ -30,7 +30,7 @@
   - [x] Dialog + AlertDialog (`showCloseButton`, `isOutsideDismissible`).
   - [x] Sheet (`side`, `showCloseButton`, `isOutsideDismissible`).
 - [x] DropdownMenu & Popover.
-- [ ] Card & Separator.
+- [x] Card & Separator.
 - [ ] Alert & Toast (Sonner).
 
 > **Button & Badge complete (2026-07-20).** Also introduced a base `Skeleton`
@@ -101,6 +101,14 @@
 > `@radix-ui/react-popover` with trigger/content/anchor. Both use popover
 > tokens only. Re-exported from `src/index.ts`. 7 new tests (83 total); full
 > gauntlet green. Next up: **Card & Separator**.
+
+> **Card & Separator complete (2026-07-28).** `Card` is a compound surface
+> (`Header`/`Title`/`Description`/`Action`/`Content`/`Footer`) using card
+> tokens only, plus a `CardSkeleton` (ADR-0005). `Separator` wraps
+> `@radix-ui/react-separator` with horizontal/vertical orientation and
+> decorative mode (`bg-border`). Re-exported from `src/index.ts`. 9 new tests
+> (92 total); full gauntlet green. This closes **Card & Separator** — next up:
+> **Alert & Toast (Sonner)**.
 
 ## Epic 3: Complex Primitives
 
