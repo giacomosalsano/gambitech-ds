@@ -1,12 +1,117 @@
 /**
  * Public entry point for @gambitech/ds.
  *
- * Primitives are added here as they are implemented (see docs/ai/EPICS.md),
- * using explicit named exports only.
+ * Primitives and composites are added here as they are implemented
+ * (see docs/ai/EPICS.md), using explicit named exports only.
  */
 
 export { cn } from "./lib/utils";
 
+export {
+  AppShell,
+  AppShellContent,
+  AppShellHeader,
+  AppShellMain,
+  AppShellMobileTrigger,
+  AppShellSidebar,
+  AppShellSkeleton,
+} from "./components/composites/app-shell";
+export type {
+  AppShellContentProps,
+  AppShellHeaderProps,
+  AppShellMainProps,
+  AppShellMobileTriggerProps,
+  AppShellProps,
+  AppShellSidebarProps,
+  AppShellSidebarSide,
+  AppShellSkeletonProps,
+} from "./components/composites/app-shell";
+export {
+  ContextSwitcher,
+  ContextSwitcherContent,
+  ContextSwitcherItem,
+  ContextSwitcherItems,
+  ContextSwitcherLabel,
+  ContextSwitcherSeparator,
+  ContextSwitcherSkeleton,
+  ContextSwitcherTrigger,
+  ContextSwitcherTriggerLabel,
+  ContextSwitcherTriggerValue,
+} from "./components/composites/context-switcher";
+export type {
+  ContextSwitcherContentProps,
+  ContextSwitcherItemProps,
+  ContextSwitcherItemsProps,
+  ContextSwitcherLabelProps,
+  ContextSwitcherProps,
+  ContextSwitcherSeparatorProps,
+  ContextSwitcherSkeletonProps,
+  ContextSwitcherTriggerLabelProps,
+  ContextSwitcherTriggerProps,
+  ContextSwitcherTriggerValueProps,
+} from "./components/composites/context-switcher";
+export {
+  DataList,
+  DataListSkeleton,
+  EntityRow,
+  EntityRowActions,
+  EntityRowContent,
+  EntityRowMeta,
+  EntityRowSkeleton,
+  EntityRowTitle,
+  EntityRowValue,
+} from "./components/composites/data-list";
+export type {
+  DataListProps,
+  DataListSkeletonProps,
+  EntityRowActionsProps,
+  EntityRowContentProps,
+  EntityRowMetaProps,
+  EntityRowProps,
+  EntityRowSkeletonProps,
+  EntityRowTitleProps,
+  EntityRowValueProps,
+} from "./components/composites/data-list";
+export {
+  EmptyState,
+  EmptyStateAction,
+  EmptyStateDescription,
+  EmptyStateIcon,
+  EmptyStateSkeleton,
+  EmptyStateTitle,
+} from "./components/composites/empty-state";
+export type {
+  EmptyStateActionProps,
+  EmptyStateDescriptionProps,
+  EmptyStateIconProps,
+  EmptyStateProps,
+  EmptyStateSkeletonProps,
+  EmptyStateTitleProps,
+} from "./components/composites/empty-state";
+export {
+  MetricCard,
+  MetricCardEmpty,
+  MetricCardLabel,
+  MetricCardSkeleton,
+  MetricCardValue,
+} from "./components/composites/metric-card";
+export type {
+  MetricCardEmptyProps,
+  MetricCardLabelProps,
+  MetricCardProps,
+  MetricCardSkeletonProps,
+  MetricCardValueProps,
+} from "./components/composites/metric-card";
+export {
+  StatusBadge,
+  StatusBadgeSkeleton,
+} from "./components/composites/status-badge";
+export type {
+  StatusBadgeConfig,
+  StatusBadgeProps,
+  StatusBadgeSkeletonProps,
+  StatusBadgeVariant,
+} from "./components/composites/status-badge";
 export {
   Alert,
   AlertDescription,

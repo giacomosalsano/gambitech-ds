@@ -177,11 +177,48 @@
 
 ## Epic 4: Clipper Domain Composites (Agnostic)
 
-- [ ] AppShell (Sidebar/Topnav layout).
-- [ ] MetricCard (Label, value, empty state).
-- [ ] ContextSwitcher (Multi-membership toggle UI).
-- [ ] EmptyState & StatusBadge.
-- [ ] DataList / EntityRow.
+- [x] AppShell (Sidebar/Topnav layout).
+- [x] MetricCard (Label, value, empty state).
+- [x] ContextSwitcher (Multi-membership toggle UI).
+- [x] EmptyState & StatusBadge.
+- [x] DataList / EntityRow.
+
+> **AppShell complete (2026-07-29).** First Epic 4 composite under
+> `src/components/composites/app-shell/`. Compound layout (`Sidebar` / `Main` /
+> `Header` / `Content` / `MobileTrigger`) with desktop sidebar (sidebar tokens),
+> sticky topnav, and mobile drawer via `Sheet`. Controlled/uncontrolled mobile
+> open state; overridable `mobileNavTitle` and trigger `aria-label` for i18n.
+> Ships `AppShellSkeleton` (ADR-0005). Re-exported from `src/index.ts`. 7 new
+> tests (163 total); full gauntlet green. Next up: **MetricCard**.
+
+> **MetricCard complete (2026-07-29).** Compound metric surface (`Label` /
+> `Value` / `Empty`) using card tokens; empty copy stays in children for i18n
+> (e.g. “No ratings” / “Sem avaliações”). Ships `MetricCardSkeleton`
+> (ADR-0005). Re-exported from `src/index.ts`. 5 new tests (168 total); full
+> gauntlet green. Next up: **ContextSwitcher**.
+
+> **ContextSwitcher complete (2026-07-29).** Multi-membership toggle built on
+> `DropdownMenu` + radio items. Compound API (`Trigger` / `TriggerLabel` /
+> `TriggerValue` / `Content` / `Label` / `Items` / `Item` / `Separator`) with
+> controlled/uncontrolled `value`/`onValueChange`; labels via children for
+> i18n (ADR-0002). Ships `ContextSwitcherSkeleton` (ADR-0005). Re-exported
+> from `src/index.ts`. 7 new tests (175 total); full gauntlet green. Next up:
+> **EmptyState & StatusBadge**.
+
+> **EmptyState & StatusBadge complete (2026-07-29).** `EmptyState` is a
+> compound empty region (`Icon` / `Title` / `Description` / `Action`) with
+> `role="status"` and i18n via children. `StatusBadge` wraps `Badge` with a
+> consumer-owned `statuses` map (label + variant per key, ADR-0002); unknown
+> keys fall back to `outline` + raw status. Both ship skeletons (ADR-0005).
+> Re-exported from `src/index.ts`. 8 new tests (183 total); full gauntlet
+> green. Next up: **DataList / EntityRow**.
+
+> **DataList / EntityRow complete — Epic 4 done (2026-07-29).** `DataList` is
+> a bordered, divided list surface; `EntityRow` compounds `Content` / `Title` /
+> `Meta` / `Value` / `Actions` (name + meta + price + actions). Copy via
+> children for i18n; ships `DataListSkeleton` and `EntityRowSkeleton`
+> (ADR-0005). Re-exported from `src/index.ts`. 4 new tests (187 total); full
+> gauntlet green. This closes **Epic 4** — next up: **Epic 5 (registry.json)**.
 
 ## Epic 5: Shadcn Custom Registry Setup
 

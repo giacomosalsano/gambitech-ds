@@ -11,7 +11,7 @@ maintainable and every contribution is reviewable in isolation.
 
 ## Problem
 
-How should primitives be written on top of the Radix foundation (ADR-0001), and
+How should components be written on top of the Radix foundation (ADR-0001), and
 how should their files be organised and tested?
 
 ## Decision
@@ -20,9 +20,11 @@ how should their files be organised and tested?
    (MIT) to our design tokens and domain-agnostic naming, rather than writing
    each primitive from scratch. This keeps behaviour/accessibility battle-tested
    and eases shadcn-registry compatibility.
-2. **File layout:** one folder per component under `src/components/ui/<name>/`
-   with colocated implementation, stories, tests and an `index.ts`. Components
-   are re-exported from `src/index.ts` with explicit named exports.
+2. **File layout:** one folder per component with colocated implementation,
+   stories, tests and an `index.ts`. Primitives live under
+   `src/components/ui/<name>/`; domain-agnostic composites live under
+   `src/components/composites/<name>/` (same conventions). Components are
+   re-exported from `src/index.ts` with explicit named exports.
 3. **Styling:** Tailwind v4 semantic tokens + CVA for variants; `cn` for class
    composition; `tw-animate-css` for animation utilities. No hardcoded hex.
 4. **Testing:** unit tests (Vitest + RTL, jsdom) run in CI via `pnpm test`;
