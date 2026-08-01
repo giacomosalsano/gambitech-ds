@@ -43,7 +43,9 @@ pnpm install
 | `pnpm typecheck`         | Run the TypeScript compiler in no-emit mode.                    |
 | `pnpm lint`              | Run ESLint.                                                     |
 | `pnpm format`            | Format the repository with Prettier.                            |
-| `pnpm test`              | Run unit tests with Vitest.                                     |
+| `pnpm test`              | Run unit tests with Vitest in watch mode.                       |
+| `pnpm test:run`          | Run unit tests once (used in CI).                               |
+| `pnpm test:ui`           | Run unit tests with the Vitest UI.                              |
 | `pnpm test:e2e`          | Run Playwright interaction/a11y tests.                          |
 | `pnpm changeset`         | Record a versioned change.                                      |
 
@@ -67,6 +69,7 @@ src/            Library source (published package)
     composites/ Domain-agnostic composites + registry.json
   lib/          Shared utilities/types + registry.json
   styles/       Design tokens (globals.css) + registry.json
+  test/         Test-only helpers and mocks (not published, not in the registry)
 registry.json   Root shadcn registry (composes nested registries via include)
 scripts/        Tooling (e.g. sync-registry.mjs)
 public/r/       Generated registry JSON (`pnpm build:registry`, gitignored)

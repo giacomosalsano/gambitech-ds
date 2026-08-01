@@ -27,7 +27,7 @@ how should their files be organised and tested?
    re-exported from `src/index.ts` with explicit named exports.
 3. **Styling:** Tailwind v4 semantic tokens + CVA for variants; `cn` for class
    composition; `tw-animate-css` for animation utilities. No hardcoded hex.
-4. **Testing:** unit tests (Vitest + RTL, jsdom) run in CI via `pnpm test`;
+4. **Testing:** unit tests (Vitest + RTL, jsdom) run in CI via `pnpm test:run`;
    Playwright E2E runs against the built Storybook via `pnpm test:e2e`.
    Story/interaction testing tooling (`@storybook/addon-themes` +
    `@storybook/addon-vitest`) is installed and available in the Storybook UI;

@@ -54,16 +54,42 @@ Then re-export from `src/index.ts`.
 
 ## Testing
 
-| Command         | What it runs                                  |
-| --------------- | --------------------------------------------- |
-| `pnpm test`     | Unit tests (Vitest + RTL, jsdom). Runs in CI. |
-| `pnpm test:e2e` | Playwright E2E against the built Storybook.   |
+| Command         | What it runs                                    |
+| --------------- | ----------------------------------------------- |
+| `pnpm test`     | Unit tests (Vitest + RTL, jsdom) in watch mode. |
+| `pnpm test:run` | Same suite, single run. This is the CI gate.    |
+| `pnpm test:ui`  | Same suite in watch mode with the Vitest UI.    |
+| `pnpm test:e2e` | Playwright E2E against the built Storybook.     |
 
 `test:e2e` needs a browser once:
 
 ```bash
 pnpm exec playwright install chromium
 ```
+
+### Dates in tests
+
+Never hardcode a calendar date in a test. Fixed dates silently rot: an assertion
+written against `Jul 10, 2026` keeps passing until the day the clock moves past
+the month the component happens to render, and then fails for reasons unrelated
+to the change under review.
+
+Derive dates from the shared helpers instead:
+
+- `src/test/date.mocks.ts` — anchors derived from the day the suite runs
+  (`today`, `currentMonth`, `pastMonth`) and the day constants built from them
+  (`startDay`, `middleDay`, `endDay`, their `past*` counterparts, plus the
+  `selectedDay` / `pastDay` aliases). Day numbers stay within 1–28 so they exist
+  in every month.
+- `src/test/date.utils.ts` — dependency-free date arithmetic (`startOfDay`,
+  `addDays` / `subDays`, `addMonths` / `subMonths`, `addYears` / `subYears`,
+  `withDayOfMonth`) and `en-US` formatters that reproduce the labels under test:
+  `formatShortDate` (`LLL dd, y` trigger), `formatMediumDate` (`PPP` trigger),
+  `formatLongDate` (day button ARIA label) and `formatMonthYear` (month grid
+  ARIA label), plus the matching `*NamePattern` accessible-name matchers.
+
+The formatters are built on native `Intl` rather than `date-fns` on purpose, so
+assertions stay an independent oracle of the library the components format with.
 
 **Story/interaction tests** use `@storybook/addon-themes` (light/dark toggle)
 and `@storybook/addon-vitest` (Test panel in the Storybook UI). The browser-mode
@@ -101,7 +127,7 @@ A component is complete only when:
 - [ ] Has a `.stories.tsx` covering key variants/states.
 - [ ] Has unit tests for behaviour and variants.
 - [ ] Passes accessibility checks (Storybook a11y addon).
-- [ ] `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build` are green.
+- [ ] `pnpm lint`, `pnpm typecheck`, `pnpm test:run`, `pnpm build` are green.
 - [ ] A Changeset is added (`pnpm changeset`) describing the change.
 - [ ] Registry entry added/updated when applicable (Epic 5).
 - [ ] `pnpm registry:validate` stays green after registry edits.

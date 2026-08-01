@@ -17,6 +17,19 @@
 > `docs/adr/0001`–`0003`. **No UI components were built.** Awaiting approval
 > before starting Epic 2.
 
+> **Test date utilities added (2026-08-01).** Follow-up to the Vitest setup.
+> `src/test/date.utils.ts` holds dependency-free date arithmetic (`startOfDay`,
+> `add*`/`sub*` days/months/years, `withDayOfMonth`) and `en-US` formatters that
+> reproduce the labels under test, built on native `Intl` so assertions stay an
+> independent oracle of `date-fns`. `src/test/date.mocks.ts` holds anchors
+> derived from the day the suite runs (`today`, `currentMonth`, `pastMonth` and
+> the day constants built from them). The `DatePicker` and `DatePickerRange`
+> suites were migrated off hardcoded calendar dates, which fixed a `DatePicker`
+> test that had started failing once the clock moved past July 2026. `src/test/`
+> is test-only: not published, not in the registry. Convention documented in
+> `CONTRIBUTING.md`. CI now calls `pnpm test:run`, since `pnpm test` was
+> repointed to watch mode.
+
 ## Epic 2: Core UI Primitives (Shadcn Baseline)
 
 - [x] Button & Badge (with variants).
