@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "styles",
+      "type": "registry:theme",
+      "title": "Styles",
+      "description": "Design tokens and base styles (OKLCH semantic CSS variables).",
+      "dependencies": [
+        "tw-animate-css"
+      ],
+      "files": [
+        {
+          "path": "globals.css",
+          "type": "registry:file",
+          "target": "~/src/styles/gambitech-ds.css"
+        }
+      ],
+      "docs": "Import the installed CSS (or copy tokens into your globals.css) so semantic Tailwind tokens resolve."
+    }
+  ]
+}

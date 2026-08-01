@@ -1,4 +1,182 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "items": []
+  "items": [
+    {
+      "name": "app-shell",
+      "type": "registry:component",
+      "title": "App Shell",
+      "description": "Application shell with sidebar, topnav, and mobile drawer.",
+      "files": [
+        {
+          "path": "app-shell/app-shell.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/app-shell/app-shell.tsx"
+        },
+        {
+          "path": "app-shell/app-shell.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/app-shell/app-shell.types.ts"
+        },
+        {
+          "path": "app-shell/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/app-shell/index.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/sheet",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "context-switcher",
+      "type": "registry:component",
+      "title": "Context Switcher",
+      "description": "Multi-membership context toggle built on DropdownMenu.",
+      "files": [
+        {
+          "path": "context-switcher/context-switcher.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/context-switcher/context-switcher.tsx"
+        },
+        {
+          "path": "context-switcher/context-switcher.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/context-switcher/context-switcher.types.ts"
+        },
+        {
+          "path": "context-switcher/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/context-switcher/index.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/dropdown-menu",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/types",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "data-list",
+      "type": "registry:component",
+      "title": "Data List",
+      "description": "Bordered list surface with EntityRow compounds.",
+      "files": [
+        {
+          "path": "data-list/data-list.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/data-list/data-list.tsx"
+        },
+        {
+          "path": "data-list/data-list.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/data-list/data-list.types.ts"
+        },
+        {
+          "path": "data-list/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/data-list/index.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty State",
+      "description": "Empty region with icon, copy, and optional action.",
+      "files": [
+        {
+          "path": "empty-state/empty-state.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/empty-state/empty-state.tsx"
+        },
+        {
+          "path": "empty-state/empty-state.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/empty-state/empty-state.types.ts"
+        },
+        {
+          "path": "empty-state/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/empty-state/index.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "metric-card",
+      "type": "registry:component",
+      "title": "Metric Card",
+      "description": "Metric surface with label, value, and empty state.",
+      "files": [
+        {
+          "path": "metric-card/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/metric-card/index.ts"
+        },
+        {
+          "path": "metric-card/metric-card.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/metric-card/metric-card.tsx"
+        },
+        {
+          "path": "metric-card/metric-card.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/metric-card/metric-card.types.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:component",
+      "title": "Status Badge",
+      "description": "Badge wrapper driven by a consumer-owned status map.",
+      "files": [
+        {
+          "path": "status-badge/index.ts",
+          "type": "registry:component",
+          "target": "@components/composites/status-badge/index.ts"
+        },
+        {
+          "path": "status-badge/status-badge.tsx",
+          "type": "registry:component",
+          "target": "@components/composites/status-badge/status-badge.tsx"
+        },
+        {
+          "path": "status-badge/status-badge.types.ts",
+          "type": "registry:component",
+          "target": "@components/composites/status-badge/status-badge.types.ts"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/badge",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    }
+  ]
 }

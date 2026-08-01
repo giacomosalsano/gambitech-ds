@@ -1,4 +1,791 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "items": []
+  "items": [
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline status banner with title and description.",
+      "files": [
+        {
+          "path": "alert/alert.tsx",
+          "type": "registry:ui",
+          "target": "@ui/alert/alert.tsx"
+        },
+        {
+          "path": "alert/alert.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/alert/alert.types.ts"
+        },
+        {
+          "path": "alert/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/alert/index.ts"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Modal confirmation dialog that requires an explicit action.",
+      "files": [
+        {
+          "path": "alert-dialog/alert-dialog.tsx",
+          "type": "registry:ui",
+          "target": "@ui/alert-dialog/alert-dialog.tsx"
+        },
+        {
+          "path": "alert-dialog/alert-dialog.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/alert-dialog/alert-dialog.types.ts"
+        },
+        {
+          "path": "alert-dialog/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/alert-dialog/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-alert-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Compact status and label chip with variants.",
+      "files": [
+        {
+          "path": "badge/badge.tsx",
+          "type": "registry:ui",
+          "target": "@ui/badge/badge.tsx"
+        },
+        {
+          "path": "badge/badge.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/badge/badge.types.ts"
+        },
+        {
+          "path": "badge/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/badge/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/types",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Navigation trail for hierarchical page location.",
+      "files": [
+        {
+          "path": "breadcrumb/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "@ui/breadcrumb/breadcrumb.tsx"
+        },
+        {
+          "path": "breadcrumb/breadcrumb.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/breadcrumb/breadcrumb.types.ts"
+        },
+        {
+          "path": "breadcrumb/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/breadcrumb/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/types",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button primitive with variants, sizes, and loading state.",
+      "files": [
+        {
+          "path": "button/button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/button/button.tsx"
+        },
+        {
+          "path": "button/button.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/button/button.types.ts"
+        },
+        {
+          "path": "button/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/button/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/types",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Day picker built on react-day-picker.",
+      "files": [
+        {
+          "path": "calendar/calendar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/calendar/calendar.tsx"
+        },
+        {
+          "path": "calendar/calendar.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/calendar/calendar.types.ts"
+        },
+        {
+          "path": "calendar/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/calendar/index.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Compound surface for grouped content.",
+      "files": [
+        {
+          "path": "card/card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/card/card.tsx"
+        },
+        {
+          "path": "card/card.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/card/card.types.ts"
+        },
+        {
+          "path": "card/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/card/index.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox input with checked and indeterminate states.",
+      "files": [
+        {
+          "path": "checkbox/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "@ui/checkbox/checkbox.tsx"
+        },
+        {
+          "path": "checkbox/checkbox.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/checkbox/checkbox.types.ts"
+        },
+        {
+          "path": "checkbox/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/checkbox/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Command palette / combobox primitive built on cmdk.",
+      "files": [
+        {
+          "path": "command/command.tsx",
+          "type": "registry:ui",
+          "target": "@ui/command/command.tsx"
+        },
+        {
+          "path": "command/command.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/command/command.types.ts"
+        },
+        {
+          "path": "command/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/command/index.ts"
+        }
+      ],
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/dialog",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "Single-date picker composed from Popover, Button, and Calendar.",
+      "files": [
+        {
+          "path": "date-picker/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "@ui/date-picker/date-picker.tsx"
+        },
+        {
+          "path": "date-picker/date-picker.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-picker/date-picker.types.ts"
+        },
+        {
+          "path": "date-picker/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-picker/index.ts"
+        }
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/calendar",
+        "giacomosalsano/gambitech-ds/popover",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "date-picker-range",
+      "type": "registry:ui",
+      "title": "Date Picker Range",
+      "description": "Date range picker composed from Popover, Button, and Calendar.",
+      "files": [
+        {
+          "path": "date-picker-range/date-picker-range.tsx",
+          "type": "registry:ui",
+          "target": "@ui/date-picker-range/date-picker-range.tsx"
+        },
+        {
+          "path": "date-picker-range/date-picker-range.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-picker-range/date-picker-range.types.ts"
+        },
+        {
+          "path": "date-picker-range/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-picker-range/index.ts"
+        }
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/calendar",
+        "giacomosalsano/gambitech-ds/popover",
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog built on Radix Dialog.",
+      "files": [
+        {
+          "path": "dialog/dialog.tsx",
+          "type": "registry:ui",
+          "target": "@ui/dialog/dialog.tsx"
+        },
+        {
+          "path": "dialog/dialog.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/dialog/dialog.types.ts"
+        },
+        {
+          "path": "dialog/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/dialog/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Dropdown menu with items, checkboxes, and submenus.",
+      "files": [
+        {
+          "path": "dropdown-menu/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/dropdown-menu/dropdown-menu.tsx"
+        },
+        {
+          "path": "dropdown-menu/dropdown-menu.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/dropdown-menu/dropdown-menu.types.ts"
+        },
+        {
+          "path": "dropdown-menu/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/dropdown-menu/index.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input with invalid and disabled states.",
+      "files": [
+        {
+          "path": "input/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/input/index.ts"
+        },
+        {
+          "path": "input/input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input/input.tsx"
+        },
+        {
+          "path": "input/input.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/input/input.types.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible form label.",
+      "files": [
+        {
+          "path": "label/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/label/index.ts"
+        },
+        {
+          "path": "label/label.tsx",
+          "type": "registry:ui",
+          "target": "@ui/label/label.tsx"
+        },
+        {
+          "path": "label/label.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/label/label.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pagination navigation built on button variants.",
+      "files": [
+        {
+          "path": "pagination/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/pagination/index.ts"
+        },
+        {
+          "path": "pagination/pagination.tsx",
+          "type": "registry:ui",
+          "target": "@ui/pagination/pagination.tsx"
+        },
+        {
+          "path": "pagination/pagination.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/pagination/pagination.types.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/button",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating popover surface.",
+      "files": [
+        {
+          "path": "popover/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/popover/index.ts"
+        },
+        {
+          "path": "popover/popover.tsx",
+          "type": "registry:ui",
+          "target": "@ui/popover/popover.tsx"
+        },
+        {
+          "path": "popover/popover.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/popover/popover.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Single-selection radio group.",
+      "files": [
+        {
+          "path": "radio-group/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/radio-group/index.ts"
+        },
+        {
+          "path": "radio-group/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "@ui/radio-group/radio-group.tsx"
+        },
+        {
+          "path": "radio-group/radio-group.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/radio-group/radio-group.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visual separator for layout sections.",
+      "files": [
+        {
+          "path": "separator/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/separator/index.ts"
+        },
+        {
+          "path": "separator/separator.tsx",
+          "type": "registry:ui",
+          "target": "@ui/separator/separator.tsx"
+        },
+        {
+          "path": "separator/separator.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/separator/separator.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Slide-over drawer built on Radix Dialog.",
+      "files": [
+        {
+          "path": "sheet/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/sheet/index.ts"
+        },
+        {
+          "path": "sheet/sheet.tsx",
+          "type": "registry:ui",
+          "target": "@ui/sheet/sheet.tsx"
+        },
+        {
+          "path": "sheet/sheet.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/sheet/sheet.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder primitive.",
+      "files": [
+        {
+          "path": "skeleton/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/skeleton/index.ts"
+        },
+        {
+          "path": "skeleton/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "@ui/skeleton/skeleton.tsx"
+        },
+        {
+          "path": "skeleton/skeleton.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/skeleton/skeleton.types.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Toast host and helpers powered by Sonner.",
+      "files": [
+        {
+          "path": "sonner/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/sonner/index.ts"
+        },
+        {
+          "path": "sonner/sonner.tsx",
+          "type": "registry:ui",
+          "target": "@ui/sonner/sonner.tsx"
+        },
+        {
+          "path": "sonner/sonner.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/sonner/sonner.types.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "sonner"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switch input.",
+      "files": [
+        {
+          "path": "switch/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/switch/index.ts"
+        },
+        {
+          "path": "switch/switch.tsx",
+          "type": "registry:ui",
+          "target": "@ui/switch/switch.tsx"
+        },
+        {
+          "path": "switch/switch.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/switch/switch.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Compound table with optional sortable headers.",
+      "files": [
+        {
+          "path": "table/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/table/index.ts"
+        },
+        {
+          "path": "table/table.tsx",
+          "type": "registry:ui",
+          "target": "@ui/table/table.tsx"
+        },
+        {
+          "path": "table/table.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/table/table.types.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabbed navigation and panels.",
+      "files": [
+        {
+          "path": "tabs/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/tabs/index.ts"
+        },
+        {
+          "path": "tabs/tabs.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tabs/tabs.tsx"
+        },
+        {
+          "path": "tabs/tabs.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/tabs/tabs.types.ts"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multiline text input with auto-grow sizing.",
+      "files": [
+        {
+          "path": "textarea/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/textarea/index.ts"
+        },
+        {
+          "path": "textarea/textarea.tsx",
+          "type": "registry:ui",
+          "target": "@ui/textarea/textarea.tsx"
+        },
+        {
+          "path": "textarea/textarea.types.ts",
+          "type": "registry:ui",
+          "target": "@ui/textarea/textarea.types.ts"
+        }
+      ],
+      "registryDependencies": [
+        "giacomosalsano/gambitech-ds/skeleton",
+        "giacomosalsano/gambitech-ds/utils"
+      ]
+    }
+  ]
 }

@@ -76,17 +76,20 @@ interactively via `pnpm dev`.
 
 Source registries are composed via `include` from the root `registry.json`:
 
-- `src/lib/registry.json` — shared utilities / styles
+- `src/lib/registry.json` — `utils`, `types`
+- `src/styles/registry.json` — design tokens (`styles`)
 - `src/components/ui/registry.json` — primitives
 - `src/components/composites/registry.json` — composites
 
-| Command                  | What it runs                                             |
-| ------------------------ | -------------------------------------------------------- |
-| `pnpm registry:validate` | Validate source registries (schema, paths, uniqueness).  |
-| `pnpm build:registry`    | Emit flattened item JSON under `public/r/` (gitignored). |
+| Command                  | What it runs                                                    |
+| ------------------------ | --------------------------------------------------------------- |
+| `pnpm registry:sync`     | Regenerate nested catalogs from component folders (preferred).  |
+| `pnpm registry:validate` | Sync + validate source registries (schema, paths, uniqueness).  |
+| `pnpm build:registry`    | Sync + emit flattened item JSON under `public/r/` (gitignored). |
 
-Add or update an item in the nested `registry.json` that owns the component,
-then validate and rebuild. Full consumer install checks land in Epic 5.
+After adding a component folder, run `pnpm registry:sync` (or validate/build).
+Same-repo `registryDependencies` use GitHub addresses
+(`giacomosalsano/gambitech-ds/<name>`). Consumer install checks are Epic 5.3.
 
 ## Definition of Done (per component)
 

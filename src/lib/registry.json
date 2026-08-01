@@ -1,4 +1,35 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "items": []
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Class-name helper (`cn`) shared by every component.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "type": "registry:lib",
+      "title": "Types",
+      "description": "Shared TypeScript types used across components.",
+      "files": [
+        {
+          "path": "types.ts",
+          "type": "registry:lib",
+          "target": "@lib/types.ts"
+        }
+      ]
+    }
+  ]
 }

@@ -4,6 +4,7 @@
   "homepage": "https://github.com/giacomosalsano/gambitech-ds",
   "include": [
     "src/lib/registry.json",
+    "src/styles/registry.json",
     "src/components/ui/registry.json",
     "src/components/composites/registry.json"
   ]

@@ -32,8 +32,9 @@
   "packageManager": "pnpm@11.15.0",
   "scripts": {
     "build": "tsdown",
-    "build:registry": "shadcn build --output public/r",
-    "registry:validate": "shadcn registry validate",
+    "build:registry": "pnpm registry:sync && shadcn build --output public/r",
+    "registry:sync": "node scripts/sync-registry.mjs",
+    "registry:validate": "pnpm registry:sync && shadcn registry validate",
     "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

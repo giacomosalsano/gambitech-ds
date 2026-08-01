@@ -14,8 +14,9 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Epic 5 in progress — registry generation configured; component
-> mapping next. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> **Status:** Epic 5 in progress — components mapped to the shadcn registry;
+> consumer `npx shadcn add` validation next. See
+> [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
@@ -35,8 +36,9 @@ pnpm install
 | `pnpm dev`               | Start Storybook (primary component workbench).                  |
 | `pnpm dev:playground`    | Start the Next.js playground app.                               |
 | `pnpm build`             | Build the library with tsdown (`dist/`).                        |
-| `pnpm build:registry`    | Generate static shadcn registry JSON under `public/r/`.         |
-| `pnpm registry:validate` | Validate the source `registry.json` (and includes) with shadcn. |
+| `pnpm registry:sync`     | Regenerate nested registry catalogs from `src/` folders.        |
+| `pnpm build:registry`    | Sync + generate static shadcn registry JSON under `public/r/`.  |
+| `pnpm registry:validate` | Sync + validate the source registry (and includes) with shadcn. |
 | `pnpm build-storybook`   | Build the static Storybook site.                                |
 | `pnpm typecheck`         | Run the TypeScript compiler in no-emit mode.                    |
 | `pnpm lint`              | Run ESLint.                                                     |
@@ -64,8 +66,9 @@ src/            Library source (published package)
     ui/         Primitives (src/components/ui/<name>/) + registry.json
     composites/ Domain-agnostic composites + registry.json
   lib/          Shared utilities/types + registry.json
-  styles/       Design tokens (globals.css)
+  styles/       Design tokens (globals.css) + registry.json
 registry.json   Root shadcn registry (composes nested registries via include)
+scripts/        Tooling (e.g. sync-registry.mjs)
 public/r/       Generated registry JSON (`pnpm build:registry`, gitignored)
 .storybook/     Storybook (Vite) configuration
 playground/     Private Next.js app for local development (not published)
