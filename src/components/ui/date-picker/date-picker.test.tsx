@@ -2,6 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
+import { pastDay, pastMonth, selectedDay, today } from "@/test/date.mocks";
+import {
+  formatMonthYear,
+  longDateNamePattern,
+  mediumDateNamePattern,
+} from "@/test/date.utils";
+
 import { DatePicker, DatePickerSkeleton } from "./date-picker";
 
 describe("DatePicker", () => {
@@ -17,24 +24,18 @@ describe("DatePicker", () => {
   });
 
   it("shows the formatted value on the trigger", () => {
-    render(<DatePicker value={new Date(2026, 6, 15)} />);
+    render(<DatePicker value={selectedDay} />);
 
     expect(
-      screen.getByRole("button", { name: /july 15th, 2026/i }),
+      screen.getByRole("button", { name: mediumDateNamePattern(selectedDay) }),
     ).toBeInTheDocument();
   });
 
   it("opens the calendar and selects a date", async () => {
     const user = userEvent.setup();
     const onValueChange = vi.fn();
-
-    render(
-      <DatePicker
-        defaultValue={undefined}
-        onValueChange={onValueChange}
-        calendarProps={{ defaultMonth: new Date(2026, 6, 1) }}
-      />,
-    );
+    
+    render(<DatePicker onValueChange={onValueChange} />);
 
     await user.click(screen.getByRole("button", { name: /pick a date/i }));
 
@@ -42,16 +43,15 @@ describe("DatePicker", () => {
       document.querySelector("[data-slot='date-picker-content']"),
     ).toBeInTheDocument();
 
-    const day = new Date(2026, 6, 15).toLocaleDateString();
     await user.click(
-      document.querySelector(`[data-day="${day}"]`) as HTMLButtonElement,
+      screen.getByRole("button", { name: longDateNamePattern(selectedDay) }),
     );
 
     expect(onValueChange).toHaveBeenCalled();
     const selected = onValueChange.mock.calls[0]?.[0] as Date;
-    expect(selected.getFullYear()).toBe(2026);
-    expect(selected.getMonth()).toBe(6);
-    expect(selected.getDate()).toBe(15);
+    expect(selected.getFullYear()).toBe(selectedDay.getFullYear());
+    expect(selected.getMonth()).toBe(selectedDay.getMonth());
+    expect(selected.getDate()).toBe(selectedDay.getDate());
   });
 
   it("does not render the Today button by default", async () => {
@@ -68,36 +68,33 @@ describe("DatePicker", () => {
   it("navigates to today without selecting when showTodayButton is true", async () => {
     const user = userEvent.setup();
     const onValueChange = vi.fn();
-    const today = new Date();
 
     render(
       <DatePicker
-        value={new Date(2024, 0, 10)}
+        value={pastDay}
         onValueChange={onValueChange}
         showTodayButton
         todayButtonLabel="Hoje"
-        calendarProps={{ defaultMonth: new Date(2024, 0, 1) }}
       />,
     );
 
     await user.click(
-      screen.getByRole("button", { name: /january 10th, 2024/i }),
+      screen.getByRole("button", { name: mediumDateNamePattern(pastDay) }),
     );
 
-    expect(screen.getByRole("grid", { name: /january 2024/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("grid", { name: formatMonthYear(pastMonth) }),
+    ).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Hoje" }));
 
-    const monthName = today.toLocaleString("en-US", { month: "long" });
-    const year = today.getFullYear();
     expect(
-      screen.getByRole("grid", { name: `${monthName} ${year}` }),
+      screen.getByRole("grid", { name: formatMonthYear(today) }),
     ).toBeInTheDocument();
 
     expect(onValueChange).not.toHaveBeenCalled();
-    // Selection stays on the previous value.
     expect(
-      screen.getByRole("button", { name: /january 10th, 2024/i }),
+      screen.getByRole("button", { name: mediumDateNamePattern(pastDay) }),
     ).toBeInTheDocument();
   });
 

@@ -5,6 +5,21 @@ import type { DateRange } from "react-day-picker";
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  endDay,
+  middleDay,
+  pastEndDay,
+  pastMonth,
+  pastStartDay,
+  startDay,
+  today,
+} from "@/test/date.mocks";
+import {
+  formatMonthYear,
+  longDateNamePattern,
+  shortDateNamePattern,
+} from "@/test/date.utils";
+
+import {
   DatePickerRange,
   DatePickerRangeSkeleton,
 } from "./date-picker-range";
@@ -22,17 +37,12 @@ describe("DatePickerRange", () => {
   });
 
   it("shows the formatted range on the trigger", () => {
-    render(
-      <DatePickerRange
-        value={{
-          from: new Date(2026, 6, 10),
-          to: new Date(2026, 6, 18),
-        }}
-      />,
-    );
+    render(<DatePickerRange value={{ from: startDay, to: endDay }} />);
 
     expect(
-      screen.getByRole("button", { name: /jul 10, 2026.*jul 18, 2026/i }),
+      screen.getByRole("button", {
+        name: shortDateNamePattern(startDay, endDay),
+      }),
     ).toBeInTheDocument();
   });
 
@@ -70,14 +80,16 @@ describe("DatePickerRange", () => {
     ).toBeInTheDocument();
 
     await user.click(
-      screen.getByRole("button", { name: /Friday, July 10th, 2026/i }),
+      screen.getByRole("button", { name: longDateNamePattern(startDay) }),
     );
     await user.click(
-      screen.getByRole("button", { name: /Wednesday, July 15th, 2026/i }),
+      screen.getByRole("button", { name: longDateNamePattern(middleDay) }),
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("range")).toHaveTextContent("10-15");
+      expect(screen.getByTestId("range")).toHaveTextContent(
+        `${startDay.getDate()}-${middleDay.getDate()}`,
+      );
     });
   });
 
@@ -97,14 +109,10 @@ describe("DatePickerRange", () => {
   it("navigates to today without selecting when showTodayButton is true", async () => {
     const user = userEvent.setup();
     const onValueChange = vi.fn();
-    const today = new Date();
 
     render(
       <DatePickerRange
-        value={{
-          from: new Date(2024, 0, 10),
-          to: new Date(2024, 0, 18),
-        }}
+        value={{ from: pastStartDay, to: pastEndDay }}
         onValueChange={onValueChange}
         showTodayButton
         todayButtonLabel="Hoje"
@@ -113,24 +121,26 @@ describe("DatePickerRange", () => {
     );
 
     await user.click(
-      screen.getByRole("button", { name: /jan 10, 2024.*jan 18, 2024/i }),
+      screen.getByRole("button", {
+        name: shortDateNamePattern(pastStartDay, pastEndDay),
+      }),
     );
 
     expect(
-      screen.getByRole("grid", { name: /january 2024/i }),
+      screen.getByRole("grid", { name: formatMonthYear(pastMonth) }),
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Hoje" }));
 
-    const monthName = today.toLocaleString("en-US", { month: "long" });
-    const year = today.getFullYear();
     expect(
-      screen.getByRole("grid", { name: `${monthName} ${year}` }),
+      screen.getByRole("grid", { name: formatMonthYear(today) }),
     ).toBeInTheDocument();
 
     expect(onValueChange).not.toHaveBeenCalled();
     expect(
-      screen.getByRole("button", { name: /jan 10, 2024.*jan 18, 2024/i }),
+      screen.getByRole("button", {
+        name: shortDateNamePattern(pastStartDay, pastEndDay),
+      }),
     ).toBeInTheDocument();
   });
 
