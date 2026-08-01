@@ -37,5 +37,11 @@ jobs:
       - name: Build library
         run: pnpm build
 
+      - name: Validate shadcn registry
+        run: pnpm registry:validate
+
+      - name: Build shadcn registry
+        run: pnpm build:registry
+
       - name: Build Storybook
         run: pnpm build-storybook

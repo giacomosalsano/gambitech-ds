@@ -14,8 +14,8 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Epic 4 (composites) complete. Next: Epic 5 (`registry.json`).
-> See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> **Status:** Epic 5 in progress — registry generation configured; component
+> mapping next. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
@@ -30,18 +30,20 @@ pnpm install
 
 ### Scripts
 
-| Script                 | Description                                    |
-| ---------------------- | ---------------------------------------------- |
-| `pnpm dev`             | Start Storybook (primary component workbench). |
-| `pnpm dev:playground`  | Start the Next.js playground app.              |
-| `pnpm build`           | Build the library with tsdown (`dist/`).       |
-| `pnpm build-storybook` | Build the static Storybook site.               |
-| `pnpm typecheck`       | Run the TypeScript compiler in no-emit mode.   |
-| `pnpm lint`            | Run ESLint.                                    |
-| `pnpm format`          | Format the repository with Prettier.           |
-| `pnpm test`            | Run unit tests with Vitest.                    |
-| `pnpm test:e2e`        | Run Playwright interaction/a11y tests.         |
-| `pnpm changeset`       | Record a versioned change.                     |
+| Script                   | Description                                                     |
+| ------------------------ | --------------------------------------------------------------- |
+| `pnpm dev`               | Start Storybook (primary component workbench).                  |
+| `pnpm dev:playground`    | Start the Next.js playground app.                               |
+| `pnpm build`             | Build the library with tsdown (`dist/`).                        |
+| `pnpm build:registry`    | Generate static shadcn registry JSON under `public/r/`.         |
+| `pnpm registry:validate` | Validate the source `registry.json` (and includes) with shadcn. |
+| `pnpm build-storybook`   | Build the static Storybook site.                                |
+| `pnpm typecheck`         | Run the TypeScript compiler in no-emit mode.                    |
+| `pnpm lint`              | Run ESLint.                                                     |
+| `pnpm format`            | Format the repository with Prettier.                            |
+| `pnpm test`              | Run unit tests with Vitest.                                     |
+| `pnpm test:e2e`          | Run Playwright interaction/a11y tests.                          |
+| `pnpm changeset`         | Record a versioned change.                                      |
 
 ## Consuming the tokens
 
@@ -59,10 +61,12 @@ pnpm install
 ```
 src/            Library source (published package)
   components/
-    ui/         Primitives (src/components/ui/<name>/)
-    composites/ Domain-agnostic composites (Epic 4+)
-  lib/          Shared utilities and types (cn, AsChildProps, ...)
+    ui/         Primitives (src/components/ui/<name>/) + registry.json
+    composites/ Domain-agnostic composites + registry.json
+  lib/          Shared utilities/types + registry.json
   styles/       Design tokens (globals.css)
+registry.json   Root shadcn registry (composes nested registries via include)
+public/r/       Generated registry JSON (`pnpm build:registry`, gitignored)
 .storybook/     Storybook (Vite) configuration
 playground/     Private Next.js app for local development (not published)
 docs/           Architecture, engineering and AI planning docs

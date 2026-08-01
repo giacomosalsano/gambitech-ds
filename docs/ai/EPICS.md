@@ -222,6 +222,13 @@
 
 ## Epic 5: Shadcn Custom Registry Setup
 
-- [ ] Configure `registry.json` generation.
+- [x] Configure `registry.json` generation.
 - [ ] Map all components to standard registry format.
 - [ ] Validate consumer installation via `npx shadcn add`.
+
+> **Registry generation complete (2026-08-01).** Root `registry.json` composes
+> nested catalogs via `include` (`src/lib`, `src/components/ui`,
+> `src/components/composites`). Added `shadcn` as a devDependency plus
+> `pnpm registry:validate` and `pnpm build:registry` (flattened output under
+> `public/r/`, gitignored). CI runs validate + registry build. Item arrays are
+> still empty — next up: **map all components** to the registry-item schema.

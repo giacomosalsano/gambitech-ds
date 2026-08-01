@@ -72,6 +72,22 @@ Vitest runner that executes stories as tests is **deferred**: unit tests
 Playwright provider and installing `chromium`. Until then, run stories
 interactively via `pnpm dev`.
 
+## Shadcn registry
+
+Source registries are composed via `include` from the root `registry.json`:
+
+- `src/lib/registry.json` — shared utilities / styles
+- `src/components/ui/registry.json` — primitives
+- `src/components/composites/registry.json` — composites
+
+| Command                  | What it runs                                             |
+| ------------------------ | -------------------------------------------------------- |
+| `pnpm registry:validate` | Validate source registries (schema, paths, uniqueness).  |
+| `pnpm build:registry`    | Emit flattened item JSON under `public/r/` (gitignored). |
+
+Add or update an item in the nested `registry.json` that owns the component,
+then validate and rebuild. Full consumer install checks land in Epic 5.
+
 ## Definition of Done (per component)
 
 A component is complete only when:
@@ -85,6 +101,7 @@ A component is complete only when:
 - [ ] `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build` are green.
 - [ ] A Changeset is added (`pnpm changeset`) describing the change.
 - [ ] Registry entry added/updated when applicable (Epic 5).
+- [ ] `pnpm registry:validate` stays green after registry edits.
 
 ## Commits & versioning
 
