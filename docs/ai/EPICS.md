@@ -237,7 +237,7 @@
 
 - [x] Configure `registry.json` generation.
 - [x] Map all components to standard registry format.
-- [ ] Validate consumer installation via `npx shadcn add`.
+- [x] Validate consumer installation via `npx shadcn add`.
 
 > **Registry generation complete (2026-08-01).** Root `registry.json` composes
 > nested catalogs via `include` (`src/lib`, `src/styles`, `src/components/ui`,
@@ -250,5 +250,11 @@
 > (`styles`), 26 UI primitives, and 6 composites (**35 items**). Files use
 > `@ui` / `@lib` / `@components` targets; same-repo deps use GitHub addresses
 > (`giacomosalsano/gambitech-ds/<name>`). `pnpm registry:validate` and
-> `pnpm build:registry` green. Next up: **validate consumer installation**
-> via `npx shadcn add`.
+> `pnpm build:registry` green.
+
+> **Consumer install validation complete — Epic 5 done (2026-08-04).**
+> `pnpm registry:smoke` builds the registry, serves it locally, runs
+> `shadcn add @gambitech/button @gambitech/app-shell` into a temp consumer,
+> and asserts files + transitive deps (`utils`, `types`, `skeleton`, `sheet`).
+> Documented npm + registry install paths in `README.md`. Smoke also runs in CI.
+> This closes **Epic 5**.

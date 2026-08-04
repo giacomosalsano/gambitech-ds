@@ -14,9 +14,8 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Epic 5 in progress — components mapped to the shadcn registry;
-> consumer `npx shadcn add` validation next. See
-> [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> **Status:** Epic 5 complete — dual distribution (npm + shadcn registry) is
+> ready. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
@@ -39,6 +38,7 @@ pnpm install
 | `pnpm registry:sync`     | Regenerate nested registry catalogs from `src/` folders.        |
 | `pnpm build:registry`    | Sync + generate static shadcn registry JSON under `public/r/`.  |
 | `pnpm registry:validate` | Sync + validate the source registry (and includes) with shadcn. |
+| `pnpm registry:smoke`    | End-to-end `shadcn add` smoke against a local registry server.  |
 | `pnpm build-storybook`   | Build the static Storybook site.                                |
 | `pnpm typecheck`         | Run the TypeScript compiler in no-emit mode.                    |
 | `pnpm lint`              | Run ESLint.                                                     |
@@ -48,6 +48,49 @@ pnpm install
 | `pnpm test:ui`           | Run unit tests with the Vitest UI.                              |
 | `pnpm test:e2e`          | Run Playwright interaction/a11y tests.                          |
 | `pnpm changeset`         | Record a versioned change.                                      |
+
+## Consuming via npm
+
+```bash
+pnpm add @gambitech/ds
+```
+
+```ts
+import { Button } from "@gambitech/ds";
+```
+
+## Consuming via shadcn registry
+
+After the registry JSON is hosted (or served locally from `public/r/`), add the
+namespace to the consumer `components.json`:
+
+```json
+{
+  "registries": {
+    "@gambitech": "https://example.com/r/{name}.json"
+  }
+}
+```
+
+Then install items (dependencies resolve automatically):
+
+```bash
+npx shadcn@latest add @gambitech/button
+npx shadcn@latest add @gambitech/app-shell
+```
+
+Public GitHub installs (source `registry.json` at repo root) also work once this
+branch is on the default remote:
+
+```bash
+npx shadcn@latest add giacomosalsano/gambitech-ds/button
+```
+
+Local verification in this repo:
+
+```bash
+pnpm registry:smoke
+```
 
 ## Consuming the tokens
 

@@ -43,5 +43,8 @@ jobs:
       - name: Build shadcn registry
         run: pnpm build:registry
 
+      - name: Smoke shadcn consumer install
+        run: pnpm registry:smoke
+
       - name: Build Storybook
         run: pnpm build-storybook

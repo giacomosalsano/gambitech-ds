@@ -6,6 +6,7 @@ node_modules/
 dist/
 storybook-static/
 public/r/
+.tmp/
 playground/.next/
 playground/out/
 

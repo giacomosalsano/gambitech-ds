@@ -112,10 +112,17 @@ Source registries are composed via `include` from the root `registry.json`:
 | `pnpm registry:sync`     | Regenerate nested catalogs from component folders (preferred).  |
 | `pnpm registry:validate` | Sync + validate source registries (schema, paths, uniqueness).  |
 | `pnpm build:registry`    | Sync + emit flattened item JSON under `public/r/` (gitignored). |
+| `pnpm registry:smoke`    | Local `shadcn add` consumer install smoke (also runs in CI).    |
 
 After adding a component folder, run `pnpm registry:sync` (or validate/build).
 Same-repo `registryDependencies` use GitHub addresses
-(`giacomosalsano/gambitech-ds/<name>`). Consumer install checks are Epic 5.3.
+(`giacomosalsano/gambitech-ds/<name>`).
+
+Consumer install smoke (builds registry, serves it locally, runs `shadcn add`):
+
+```bash
+pnpm registry:smoke
+```
 
 ## Definition of Done (per component)
 
