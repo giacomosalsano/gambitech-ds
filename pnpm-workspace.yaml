@@ -1,4 +1,6 @@
 packages:
+  # Root library package (`@gambitech/ds`) — required so Changesets can version it.
+  - "."
   - "playground"
 
 # pnpm 11 gates dependency build scripts behind an explicit review.

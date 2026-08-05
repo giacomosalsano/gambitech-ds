@@ -1,33 +1,36 @@
 /**
  * Smoke-test consumer installation via `shadcn add`.
  *
+ * Runs the temporary consumer outside this monorepo (OS temp dir) so `shadcn`
+ * / the package manager cannot walk up into the repo `pnpm-lock.yaml`.
+ *
  * 1. Builds the registry into `public/r/`
- * 2. Copies items into `.tmp/registry-smoke/r/` and rewrites same-repo
- *    GitHub registryDependencies to local HTTP URLs (so we can validate
- *    without publishing)
- * 3. Serves that directory and runs `shadcn add` into a temp consumer
- * 4. Asserts expected files landed under the consumer aliases
+ * 2. Copies items into a temp `r/` and rewrites same-repo GitHub
+ *    registryDependencies to local HTTP URLs
+ * 3. Serves that directory and runs `shadcn add` into a temp npm consumer
+ * 4. Asserts expected files landed and the repo lockfile is unchanged
  */
 
 import { spawn } from "node:child_process";
+import { createHash } from "node:crypto";
 import {
   cpSync,
   existsSync,
   mkdirSync,
+  mkdtempSync,
   readdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
 } from "node:fs";
 import http from "node:http";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const REPO = "giacomosalsano/gambitech-ds";
-const TMP = join(ROOT, ".tmp/registry-smoke");
-const REGISTRY_DIR = join(TMP, "r");
-const CONSUMER_DIR = join(TMP, "consumer");
+const ROOT_LOCKFILE = join(ROOT, "pnpm-lock.yaml");
 const PORT = Number(process.env.REGISTRY_SMOKE_PORT ?? 4873);
 
 const SMOKE_ITEMS = ["button", "app-shell"];
@@ -58,6 +61,10 @@ function run(command, args, options = {}) {
   });
 }
 
+function hashFile(path) {
+  return createHash("sha256").update(readFileSync(path)).digest("hex");
+}
+
 function rewriteAllRegistryDependencies(dir, baseUrl) {
   for (const file of readdirSync(dir).filter((name) => name.endsWith(".json"))) {
     const path = join(dir, file);
@@ -82,6 +89,7 @@ function writeConsumerScaffold(dir) {
   mkdirSync(join(dir, "src/components/ui"), { recursive: true });
   mkdirSync(join(dir, "src/lib"), { recursive: true });
 
+  // Force npm so shadcn does not detect the monorepo pnpm lockfile by walking up.
   writeFileSync(
     join(dir, "package.json"),
     `${JSON.stringify(
@@ -89,6 +97,7 @@ function writeConsumerScaffold(dir) {
         name: "gambitech-ds-registry-smoke",
         private: true,
         type: "module",
+        packageManager: "npm@10",
         dependencies: {
           react: "^19.0.0",
           "react-dom": "^19.0.0",
@@ -190,49 +199,67 @@ function assertExpectedFiles(consumerDir) {
 }
 
 async function main() {
+  if (!existsSync(ROOT_LOCKFILE)) {
+    throw new Error(`Missing lockfile at ${ROOT_LOCKFILE}`);
+  }
+  const lockBefore = hashFile(ROOT_LOCKFILE);
+
   console.log("→ Building registry…");
   await run("pnpm", ["build:registry"], { cwd: ROOT });
 
-  rmSync(TMP, { recursive: true, force: true });
-  mkdirSync(REGISTRY_DIR, { recursive: true });
-  cpSync(join(ROOT, "public/r"), REGISTRY_DIR, { recursive: true });
-
-  const baseUrl = `http://127.0.0.1:${PORT}`;
-  rewriteAllRegistryDependencies(REGISTRY_DIR, baseUrl);
-
-  writeConsumerScaffold(CONSUMER_DIR);
-
-  console.log("→ Installing consumer base deps…");
-  // Keep the smoke consumer outside the monorepo workspace resolution.
-  writeFileSync(join(CONSUMER_DIR, ".npmrc"), "ignore-workspace-root-check=true\n");
-  await run("pnpm", ["install", "--ignore-workspace"], { cwd: CONSUMER_DIR });
-
-  console.log(`→ Serving registry at ${baseUrl} …`);
-  const server = await startStaticServer(REGISTRY_DIR, PORT);
+  const tmp = mkdtempSync(join(tmpdir(), "gambitech-ds-registry-smoke-"));
+  const registryDir = join(tmp, "r");
+  const consumerDir = join(tmp, "consumer");
 
   try {
-    console.log(`→ shadcn add ${SMOKE_ITEMS.map((item) => `@gambitech/${item}`).join(" ")}`);
-    await run(
-      "pnpm",
-      [
-        "dlx",
-        "shadcn@latest",
-        "add",
-        ...SMOKE_ITEMS.map((item) => `@gambitech/${item}`),
-        "--yes",
-        "--overwrite",
-      ],
-      { cwd: CONSUMER_DIR },
-    );
+    mkdirSync(registryDir, { recursive: true });
+    cpSync(join(ROOT, "public/r"), registryDir, { recursive: true });
 
-    assertExpectedFiles(CONSUMER_DIR);
-    console.log("✔ Registry smoke passed:");
-    for (const file of EXPECTED_FILES) {
-      console.log(`  - ${file}`);
+    const baseUrl = `http://127.0.0.1:${PORT}`;
+    rewriteAllRegistryDependencies(registryDir, baseUrl);
+
+    writeConsumerScaffold(consumerDir);
+
+    console.log("→ Installing consumer base deps (npm, outside monorepo)…");
+    await run("npm", ["install", "--no-fund", "--no-audit"], {
+      cwd: consumerDir,
+    });
+
+    console.log(`→ Serving registry at ${baseUrl} …`);
+    const server = await startStaticServer(registryDir, PORT);
+
+    try {
+      console.log(`→ shadcn add ${SMOKE_ITEMS.map((item) => `@gambitech/${item}`).join(" ")}`);
+      await run(
+        "npx",
+        [
+          "--yes",
+          "shadcn@latest",
+          "add",
+          ...SMOKE_ITEMS.map((item) => `@gambitech/${item}`),
+          "--yes",
+          "--overwrite",
+        ],
+        { cwd: consumerDir },
+      );
+
+      assertExpectedFiles(consumerDir);
+      console.log("✔ Registry smoke passed:");
+      for (const file of EXPECTED_FILES) {
+        console.log(`  - ${file}`);
+      }
+    } finally {
+      server.close();
     }
   } finally {
-    server.close();
+    rmSync(tmp, { recursive: true, force: true });
   }
+
+  const lockAfter = hashFile(ROOT_LOCKFILE);
+  if (lockBefore !== lockAfter) {
+    throw new Error("Smoke mutated the repository pnpm-lock.yaml. This must not happen.");
+  }
+  console.log("✔ Repository pnpm-lock.yaml unchanged");
 }
 
 main().catch((error) => {
