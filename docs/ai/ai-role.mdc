@@ -23,8 +23,9 @@ Evolve an independent Design System (DS) library for multiple consumer apps
 
 # Context
 
-- Dual distribution: shadcn custom registry (`registry.json`, Epic 5) and npm
-  package `@gambitech/ds` (tsdown).
+- Dual distribution: shadcn custom registry (`registry.json`, nested catalogs,
+  `pnpm build:registry` / `pnpm registry:smoke`) and npm package `@gambitech/ds`
+  (tsdown).
 - Styling: CSS variables / semantic tokens only. **No hardcoded hex colors.**
 - Layout: primitives in `src/components/ui/<name>/`; composites in
   `src/components/composites/<name>/`.

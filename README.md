@@ -14,8 +14,8 @@ Theming relies exclusively on CSS variables (Tailwind v4 tokens). Rebranding is
 done by overriding tokens in the consumer's `globals.css` — never by editing
 component internals, and never with hardcoded hex colors.
 
-> **Status:** Epic 5 complete — dual distribution (npm + shadcn registry) is
-> ready. See [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
+> **Status:** Epic 5 complete. Next: Epic 6 (first npm release). See
+> [`docs/ai/EPICS.md`](docs/ai/EPICS.md) for the roadmap.
 
 ## Requirements
 
@@ -86,7 +86,8 @@ branch is on the default remote:
 npx shadcn@latest add giacomosalsano/gambitech-ds/button
 ```
 
-Local verification in this repo:
+Local verification in this repo (uses an OS temp consumer; does not touch
+`pnpm-lock.yaml`):
 
 ```bash
 pnpm registry:smoke

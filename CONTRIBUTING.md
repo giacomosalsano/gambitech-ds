@@ -118,7 +118,8 @@ After adding a component folder, run `pnpm registry:sync` (or validate/build).
 Same-repo `registryDependencies` use GitHub addresses
 (`giacomosalsano/gambitech-ds/<name>`).
 
-Consumer install smoke (builds registry, serves it locally, runs `shadcn add`):
+Consumer install smoke (builds registry, serves it locally, runs `shadcn add`
+in an OS temp consumer so the monorepo `pnpm-lock.yaml` stays untouched):
 
 ```bash
 pnpm registry:smoke
@@ -136,7 +137,7 @@ A component is complete only when:
 - [ ] Passes accessibility checks (Storybook a11y addon).
 - [ ] `pnpm lint`, `pnpm typecheck`, `pnpm test:run`, `pnpm build` are green.
 - [ ] A Changeset is added (`pnpm changeset`) describing the change.
-- [ ] Registry entry added/updated when applicable (Epic 5).
+- [ ] Registry catalog updated via `pnpm registry:sync` (then validate).
 - [ ] `pnpm registry:validate` stays green after registry edits.
 
 ## Commits & versioning

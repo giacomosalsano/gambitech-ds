@@ -37,7 +37,9 @@ Adopt **dual distribution** from a single `src/` source of truth:
 - Components must be authored so they work both as copied source and as an
   imported module (no absolute-path assumptions; rely on the `@/*` alias and
   the `cn` utility).
-- Two publish steps in CI: build the npm package and generate/validate the
-  registry (Epic 5).
+- CI builds the npm package and validates the registry
+  (`pnpm registry:validate`, `pnpm build:registry`, `pnpm registry:smoke`).
 - CSS tokens are shipped via the `./styles.css` export and referenced by the
   registry, keeping a single token source.
+- Registry consumers install via a namespaced URL (`@gambitech/...`) or the
+  public GitHub registry address (`giacomosalsano/gambitech-ds/<name>`).

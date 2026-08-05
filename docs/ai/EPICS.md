@@ -254,7 +254,26 @@
 
 > **Consumer install validation complete — Epic 5 done (2026-08-04).**
 > `pnpm registry:smoke` builds the registry, serves it locally, runs
-> `shadcn add @gambitech/button @gambitech/app-shell` into a temp consumer,
-> and asserts files + transitive deps (`utils`, `types`, `skeleton`, `sheet`).
-> Documented npm + registry install paths in `README.md`. Smoke also runs in CI.
-> This closes **Epic 5**.
+> `shadcn add @gambitech/button @gambitech/app-shell` into a temp consumer
+> **outside the monorepo** (npm + OS temp dir) so the repo `pnpm-lock.yaml`
+> stays untouched, and asserts files + transitive deps (`utils`, `types`,
+> `skeleton`, `sheet`). Documented npm + registry install paths in `README.md`.
+> Smoke also runs in CI. This closes **Epic 5**.
+
+## Epic 6: First npm Release
+
+- [ ] Review pending changesets and cut the first SemVer version.
+- [ ] Publish `@gambitech/ds` to npm and verify the install.
+- [ ] Publish / document the hosted registry URL for `@gambitech/*` installs.
+
+> **Next up:** cut the first release. Package version is still `0.0.0` with
+> pending changesets under `.changeset/`. Registry distribution is validated
+> locally; a public registry URL (or GitHub default-branch install) is needed
+> for external consumers.
+
+> **Release review in progress (2026-08-05).** Fixed Changesets workspace
+> detection by including `"."` in `pnpm-workspace.yaml` (root `@gambitech/ds`
+> was invisible to `changeset status`). Pending changesets resolve to a
+> **minor** bump → first version will be **`0.1.0`** from `0.0.0`
+> (22 minor + 3 patch). Awaiting approval before running
+> `pnpm changeset version`.

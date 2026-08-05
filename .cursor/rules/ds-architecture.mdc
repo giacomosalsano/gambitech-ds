@@ -17,10 +17,13 @@ alwaysApply: true
 - Theming is controlled by the consumer app via CSS variables (e.g., `--primary: 222.2 47.4% 11.2%;`).
 
 ## 3. Shadcn Registry Pattern
-- Structure components so they can be exported as a Shadcn Custom Registry (Epic 5 maps `src/` → `registry.json`).
+- Components are distributed via a Shadcn Custom Registry (`registry.json` +
+  nested catalogs under `src/`) and as the npm package `@gambitech/ds`.
 - Primitives live in `src/components/ui/<name>/` (ADR-0004).
 - Composites live in `src/components/composites/<name>/` (same folder conventions: impl, types, stories, tests, `index.ts`).
 - Re-export public APIs from `src/index.ts` with explicit named exports.
+- After adding/changing a component, run `pnpm registry:sync` and keep
+  `pnpm registry:validate` / `pnpm registry:smoke` green.
 
 ## 4. Quality Assurance
 - Every component must include a `.stories.tsx` file (Storybook).
